@@ -1,0 +1,175 @@
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Липень 2024'
+    var id_page = 'id-page-single-construction'
+    var class_page = 'class-page-single-construction'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Новини',
+        link: '/news'
+      }
+    ];
+    var slides = [
+      './assets/images/single-news-mock.jpg',
+      './assets/images/single-news-mock.jpg',
+      './assets/images/single-news-mock.jpg',
+      './assets/images/single-news-mock.jpg',
+    ]
+    var cards = [
+      {
+        title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+        digit: "02",
+        month: "Лютий",
+        year: "2026",
+        img: "./assets/images/home/news/1.jpg"
+      },
+      {
+        title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+        digit: "02",
+        month: "Лютий",
+        year: "2026",
+        img: "./assets/images/home/news/1.jpg"
+      },
+      {
+        title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+        digit: "02",
+        month: "Лютий",
+        year: "2026",
+        img: "./assets/images/home/news/1.jpg"
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/single-news.bundle.js')
+block content
+  .single-construction
+    .single-construction__wrapper
+      .single-construction__left
+        .single-construction__left-sticky
+          a(href="/news").single-flat-back-button
+            .single-flat-back-button__icon
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9824 11.8252L4.83984 11.8252L10.042 6.62302L9.33496 5.91501L2.92578 12.3252L9.33496 18.7343L10.042 18.0273L4.83984 12.8252L20.9824 12.8252L20.9824 11.8252Z" fill="#33414B"/>
+              </svg>
+            span Назад
+          .single-construction__title.color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1 Знижка до кінця року на всі квартири з терасами
+          .single-construction__socials
+            a(href="http://t.me", target="_blank", rel="noopener noreferrer").social-link
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.51555 10.9544C1.51692 11.2928 1.53267 11.7792 2.3466 11.9993L6.08879 13.015L14.7802 8.26886C15.1893 8.03246 15.5617 8.16332 15.2558 8.39972L8.22453 13.9095L7.95109 17.2591C8.3416 17.2591 8.51097 17.1126 8.71379 16.9368L10.5448 15.4105L14.3388 17.8353C15.0342 18.1733 15.5241 17.9949 15.7118 17.2767L18.2021 7.09308L18.203 7.09211C18.4235 6.19483 17.831 5.84369 17.1532 6.06378L2.51555 10.9544Z" fill="#F6F6F6"/>
+              </svg>
+
+              span Telegram
+            a(href="http://tiktok.com", target="_blank", rel="noopener noreferrer").social-link
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0381 3C14.4353 3.00113 16.6848 3.93045 18.377 5.61621C20.0688 7.30198 21.0007 9.54245 21 11.9258C20.9979 16.8433 16.9771 20.8455 12.0381 20.8457H12.0342C10.5343 20.8451 9.06006 20.4704 7.75098 19.7598L3 21L4.27148 16.3779C3.48737 15.0255 3.07465 13.4907 3.0752 11.9189C3.07743 7.00117 7.09797 3 12.0381 3ZM8.86523 7.5C8.71752 7.50009 8.47809 7.56013 8.27539 7.79883C8.07235 8.03777 7.5 8.61537 7.5 9.79004C7.50007 10.9642 8.29312 12.0985 8.4043 12.2588C8.51505 12.418 9.93598 14.9063 12.1865 15.8633C14.0569 16.6585 14.4378 16.4998 14.8438 16.46C15.2497 16.4202 16.1544 15.8827 16.3389 15.3252C16.5233 14.768 16.5231 14.2903 16.4678 14.1904C16.4124 14.0909 16.2644 14.0314 16.043 13.9121C15.8212 13.7925 14.7332 13.2144 14.5303 13.1348C14.3273 13.0552 14.1799 13.0159 14.0322 13.2549C13.8846 13.4936 13.4603 14.0311 13.3311 14.1904C13.2019 14.3499 13.0729 14.3693 12.8516 14.25C12.63 14.1302 11.9164 13.8787 11.0703 13.0654C10.4123 12.4328 9.96829 11.6515 9.83887 11.4121C9.70974 11.1734 9.82453 11.0438 9.93555 10.9248C10.035 10.8179 10.1569 10.6461 10.2676 10.5068C10.3781 10.3674 10.4154 10.2677 10.4893 10.1084C10.563 9.94916 10.526 9.80979 10.4707 9.69043C10.4153 9.57101 9.98499 8.3901 9.78809 7.91797L9.72559 7.78613C9.57897 7.51852 9.42802 7.51198 9.29004 7.50586C9.1609 7.49994 9.01276 7.5 8.86523 7.5Z" fill="#F6F6F6"/>
+              </svg>
+              span WhatsApp
+            a(href="http://instagram.com", target="_blank", rel="noopener noreferrer").social-link
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0029 3C14.3481 3 14.6496 3.01043 15.582 3.05469C16.5343 3.09676 17.2013 3.2517 17.791 3.47949C18.4121 3.7135 18.9776 4.08216 19.4453 4.55566L19.1865 4.81934L19.4502 4.56055L19.6221 4.73828C20.0163 5.16886 20.3224 5.66869 20.5303 6.21777C20.7585 6.8051 20.914 7.47572 20.9561 8.42773C20.9969 9.35739 21 9.65895 21 12.002C21 14.3471 20.99 14.6467 20.9492 15.5752C20.9072 16.5287 20.7515 17.1959 20.5234 17.7861C20.0373 19.043 19.0433 20.0373 17.7861 20.5234C17.1984 20.752 16.5273 20.9072 15.5742 20.9492C14.6455 20.9901 14.3457 21 12 21C9.65434 21 9.35443 20.9901 8.42578 20.9492C7.47282 20.9072 6.80587 20.7523 6.21582 20.5244C5.67113 20.3192 5.16906 20.0103 4.73828 19.6182L4.56055 19.4473L4.82031 19.1836L4.55664 19.4424C4.0831 18.975 3.71417 18.413 3.47656 17.7852C3.24834 17.1978 3.09277 16.5274 3.05078 15.5752C3.00999 14.6467 3 14.347 3 12.002C3 9.65723 3.01043 9.3561 3.05469 8.42383C3.09675 7.47182 3.25175 6.80549 3.47949 6.21582C3.71399 5.59393 4.08291 5.02671 4.55762 4.55859L4.55566 4.56152L4.82031 4.81934L4.56055 4.55664L4.55762 4.55859C5.0267 4.07932 5.59084 3.71406 6.21875 3.47656C6.80608 3.2485 7.47722 3.09277 8.42969 3.05078C9.35798 3.01001 9.65796 3 12.0029 3ZM12 7.7373C9.64664 7.73756 7.73731 9.64646 7.7373 12C7.7373 14.3535 9.64664 16.2624 12 16.2627C14.3537 16.2627 16.2637 14.3537 16.2637 12C16.2637 9.6463 14.3537 7.7373 12 7.7373ZM17.2109 4.89453C16.165 4.89479 15.3166 5.74283 15.3164 6.78906C15.3164 7.83526 16.1648 8.68431 17.2109 8.68457C18.2574 8.68457 19.1064 7.83547 19.1064 6.78906C19.1062 5.74263 18.2572 4.89453 17.2109 4.89453Z" fill="#F6F6F6"/>
+              </svg>
+              span Instagram
+            a(href="http://facebook.com", target="_blank", rel="noopener noreferrer").social-link
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.3569 5.98875H17V3.12675C16.7165 3.08775 15.7416 3 14.6062 3C12.2371 3 10.6143 4.49025 10.6143 7.22925V9.75H8V12.9495H10.6143V21H13.8195V12.9503H16.3281L16.7263 9.75075H13.8188V7.5465C13.8195 6.62175 14.0685 5.98875 15.3569 5.98875Z" fill="#F6F6F6"/>
+              </svg>
+              span Facebook
+      .single-construction__right
+        .single-construction__right-top
+          .news-card__date 13 Січень 2026
+        .single-construction-slider
+          <div class="home-gallery-screen__nav">
+              <div class="slider-nav-button text-style-1920-button" data-gallery="prev">
+                  <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.8846 20L4.5 12M4.5 12L11.8846 4M4.5 12L20.5 12" stroke="#0A0F13"></path>
+                  </svg>
+              </div>
+              <div class="home-gallery-screen__nav-digits">
+                <span class="color-white" data-gallery="current">01</span>
+                <span class="color-white">/</span>
+                <span class="color-white" data-gallery="all">06</span>
+              </div>
+              <div class="slider-nav-button" data-gallery="next">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.1154 20L20.5 12M20.5 12L13.1154 4M20.5 12L4.5 12" stroke="#0A0F13"></path>
+                </svg>
+              </div>
+          </div>
+          .swiper-container(data-single-construction-slider)
+            .swiper-wrapper
+              each val in slides
+                .swiper-slide
+                  .single-construction-slider__image
+                    .single-construction-slider__image-wrap
+                      img(src=val, alt="", srcset="" loading="lazy")
+        .single-construction__content
+          h1 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          h2 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          h3 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          h4 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          h5 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          h6 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          ul 
+            li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+            li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          ol 
+            li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+            li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front
+          <p><span style="font-weight: 700;">Встигніть придбати </span><b>2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Water Front</b><b><br>
+              </b><span style="font-weight: 400;"> </span><b>Готова для заселення вже цього літа!</b></p>
+          <p><span style="font-weight: 400;"> </span><b>White-box комплектація:</b><b><br>
+              </b><span style="font-weight: 400;">– Всі чорнові роботи виконані, залишилось лише втілити ваш дизайн!</span><span style="font-weight: 400;"><br>
+              </span><span style="font-weight: 400;">– Ідеально для родини – простора кухня-вітальня, окремі кімнати, панорамні вікна.</span></p>
+          <p><span style="font-weight: 400;"> </span><b>Умови акції:</b><b><br>
+              </b><span style="font-weight: 400;"> </span><b>Перший внесок – $24,738</b><b><br>
+              </b><span style="font-weight: 400;"> </span><b>Розтермінування на 12 місяців без здорожчання!</b><b><br>
+              </b><span style="font-weight: 400;"> </span><b>Можливість заселитися одразу після купівлі</b></p>
+          <p><span style="font-weight: 400;"> </span><b>ЖК Water Front – це:</b><b><br>
+              </b><span style="font-weight: 400;"> </span><b>Комплекс бізнес-класу</b><span style="font-weight: 400;"> з власним </span><b>ТРЦ, спорткомплексом, басейнами, Сільпо та кінотеатром</b><b><br>
+              </b><span style="font-weight: 400;"> </span><b>Закрита територія</b><span style="font-weight: 400;"> з озелененням, фонтанами та зонами відпочинку</span><span style="font-weight: 400;"><br>
+              </span><span style="font-weight: 400;"> </span><b>Зручна інфраструктура</b><span style="font-weight: 400;"> – дитячі садочки, школи та магазини поруч</span></p>
+          <p><span style="font-weight: 400;"> </span><b>Кількість квартир за акційною ціною обмежена!</b><b><br>
+              </b><span style="font-weight: 400;">Не втрачайте можливість заселитися вже цього літа – залишайте заявку прямо зараз! </span><span style="font-weight: 400;"><br>
+              </span></p>
+        .single-construction-slider.single-construction-slider--no-b-padding
+          .single-construction__video
+            .single-construction__video-wrap
+              video(controls poster="./assets/images/home/home-projects/park-avenue.jpg" playsinline)
+                source(src="https://smarto.agency/wp-content/themes/smartoagency/static/smartorange_showreel1.mp4", type="video/mp4")
+                <p>Ваш браузер не підтримує HTML5 відео.</p>
+        .single-construction-slider
+          a(href="#" type="button" data-callback-popup-call data-menu-close).button-primary.button-primary--light.button-primary--no-icon
+            span Дізнатися більше у відділі продажів
+  .other-news
+    .other-news__content
+      .other-news__title
+        .color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1(data-split-lines-new-animation) Останні Апдейти
+      .bgtitle MORE
+      .other-news__list
+        each card in cards
+          a(href="/single-news").news__item
+            .news__item-img
+              img(src=card.img alt=card.title  loading="lazy")
+            .news__item-info
+              .news__item-title.text-style-1920-subtitle.text-style-375-subtitle #{card.title}
+              .news__item-date
+                .news__item-date-digit #{card.digit}
+                .news__item-date-month-year #{card.month} #{card.year}
+              .news__item-arrow
+                .news__item-arrow-line
+                .news__item-arrow-icon
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

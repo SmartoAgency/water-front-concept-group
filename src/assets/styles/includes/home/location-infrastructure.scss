@@ -1,0 +1,234 @@
+.location-infrastructure {
+    --side-padding: calc(var(--page-side-fields) * 2);
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        @include from(1025px){
+            min-height: calc(100vh - var(--header-h));
+        }
+    }
+    &__left {
+        width: 50%;
+        position: relative;
+        @include to(1024px){
+            width: 100%;
+
+            min-height: 100vw;
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 30%;
+                background: linear-gradient(180deg, #C1C2B2 0%, rgba(193, 194, 178, 0.00) 100%);
+                pointer-events: none;
+                z-index: 2;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 30%;
+                background: linear-gradient(0deg, #C1C2B2 0%, rgba(193, 194, 178, 0.00) 100%);
+                pointer-events: none;
+                z-index: 2;
+            }
+        }
+        @include to(600px){
+            height: calc(var(--vh, 1vh) * 100 - var(--header-h));
+        }
+        .map {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &-title {
+            padding: calc(var(--section-v-offset) * 0.66) var(--side-padding) var(--side-padding) var(--side-padding);
+            position: relative;
+            z-index: 3;
+            background: linear-gradient(180deg, rgba(201, 200, 193, 0.00) 0%, #C9C8C1 100%);
+            backdrop-filter: blur(1px);
+            @include from(1025px){
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                padding-top: 120px;
+                padding-left: 60px;
+                padding-right: 60px;
+                padding-bottom: 30px;
+            }
+            @include to(1024px){
+                padding-top: 54px;
+                padding-bottom: 80px;
+                padding-left: var(--page-side-fields);
+                padding-right: var(--page-side-fields);
+                position: relative;
+                z-index: 2;
+                background: linear-gradient(0deg, rgba(201, 200, 193, 0.00) 0%, #C9C8C1 100%);
+                backdrop-filter: blur(1px);
+            }
+            @include to(600px){
+                padding-top: 54px;
+                padding-bottom: 80px;
+            }
+        }
+    }
+    &__left &__label {
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        bottom: 0;
+        @include to(1024px){
+            bottom: auto;
+            top: 0;
+        }
+        @include to(600px){
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+    }
+    &__right {
+        width: 50%;
+        padding: calc(var(--section-v-offset) * 0.66) var(--side-padding) var(--side-padding) var(--side-padding);
+        position: relative;
+        @include from(1025px){
+            padding-top: 120px;
+            padding-left: 40px;
+            padding-right: 0;
+            padding-bottom: 30px;
+        }
+        @include to(1024px){
+            width: 100%;
+            padding-top: 120px;
+            padding-bottom: 70px;
+            padding-left: var(--page-side-fields);
+            padding-right: var(--page-side-fields);
+            min-height: calc(100vh - var(--header-h));
+        }
+        @include to(600px){
+            padding-top: 80px;
+        }
+        .bgtitle {
+            position: absolute;
+            left: 0;
+            top: pxInVh(315);
+            padding-left: var(--page-side-fields);
+            width: 100%;
+            text-align: center;
+            @include to(600px){
+                position: static;
+                margin-bottom: -0.2em;
+            }
+        }
+        &-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        &-title {
+            padding-bottom: pxInVh(150);
+            color: var(--color-white);
+            @include to(1024px){
+                padding-bottom: 160px;
+            }
+            @include to(600px){
+                margin-bottom: 50px;
+                padding-bottom: 0;
+            }
+        }
+    }
+    &__infrastructure {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 pxWidthInVw(40);
+    }
+    &__item {
+        width: calc(50% - pxWidthInVw(20));
+        display: flex;
+        column-gap: pxWidthInVw(40);
+        padding-top: pxWidthInVw(20);
+        padding-right: pxWidthInVw(20);
+        padding-bottom: pxWidthInVw(20);
+        overflow: hidden;
+        @include to(600px){
+            width: 100%;
+            padding: 0px 0 20px 0;
+            gap: 80px;
+        }
+        @include to(600px){
+            gap: 20px;
+        }
+        &-title {
+            color: var(--color-white);
+            margin-bottom: 12px;
+        }
+        &-description {
+            color: var(--color-text);
+        }
+        &-text {
+            @include to(1024px){
+                flex-grow: 1;
+            }
+        }
+        &-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            
+                width: 24px;
+                height: 28px;
+            @include to(600px){
+                padding: 0;
+                border: none;
+            }
+            img {
+                width: 24px;
+                height: 28px;
+                object-fit: contain;
+                @include to(600px){
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    &__label {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        background-color: var(--color-white);
+        gap: 40px;
+        padding: 40px;
+        @include to(600px){
+            padding: 28px 20px 20px 20px;
+        }
+        &-text {
+            @include to(600px){
+                text-align:center;
+            }
+        }
+        img {
+            width: 60px;
+            height: 60px;
+            @include from-to(601px, 1024px){
+                margin-right: var(--page-side-fields);
+            }
+            @include to(600px){
+                width: 44px;
+                height: auto;
+            }
+        }
+    }
+}

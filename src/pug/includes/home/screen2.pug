@@ -1,0 +1,42 @@
+-
+  const data = [
+    { icon: 'bird.svg', title: 'Жити в гармонії', description: 'Простір, де формується здорове середовище для життя і нова якість сімейних цінностей' },
+    { icon: 'waves-ladder.svg', title: 'Озеро біля дому', description: 'Життя біля власного озера з персональним причалом' },
+    { icon: 'car-front.svg', title: 'Жодних заторів', description: 'Свобода руху без заторів' },
+    { icon: 'trees.svg', title: '40 га природи', description: 'Найбільший власний парк площею 40 га' },
+    { icon: 'house.svg', title: 'Низька забудова', description: 'Високий комфорт. Справжній дім' },
+  ]
+
+.screen2
+  .screen2__content
+    #about.screen2__left
+      picture
+        source(srcset="./assets/images/home/screen2/mob-left-image.jpg" type="image/webp" media="(max-width: 600px)")
+        img(src="./assets/images/home/screen2/left-image.jpg" loading="lazy").screen2__left-bg
+      .screen2__left-title.color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1 Що ви отримаєте?
+      .screen2__left-list
+        each item in data
+          .screen2__left-item
+            .screen2__left-item-icon
+              img(src=`/assets/images/home/screen2/lucide/${item.icon}` alt="" loading="lazy")
+            .screen2__left-item-title.text-style-1920-subtitle.text-style-375-subtitle #{item.title}
+            .screen2__left-item-description.text-style-1920-18.text-style-768-h-4.text-style-375-h-4 #{item.description}
+    .screen2__right
+      .screen2__right-title.color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1(data-split-lines-new-animation data-success-title="ДЯКУЄМО ЗА ЗВЕРНЕННЯ") ЗАмовити ПРЕЗЕНТАЦІЮ
+      .bgtitle PDF
+      form(data-screen2-form).dzen-form
+        .dzen-form__input-group(data-field-input data-field-name data-status="field--inactive")
+          <svg class="dzen-form__input-group-required-label" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M10.7435 16.6822L10.9052 13.1352L7.92432 15.0647L7 13.4702L10.1658 11.8527L7 10.2351L7.92432 8.61756L10.9052 10.5471L10.7435 7H12.569L12.4073 10.5471L15.3882 8.61756L16.3125 10.2351L13.1467 11.8527L16.3125 13.4702L15.3882 15.0647L12.4073 13.1352L12.569 16.6822H10.7435Z" fill="#0A0F13"/>
+          </svg>
+          input.dzen-form__input(type="text" placeholder="Ім’я" name="name")
+          .dzen-form__input-message(data-input-message)
+        .dzen-form__input-group(data-field-input data-field-phone data-status="field--inactive")
+          <svg class="dzen-form__input-group-required-label" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M10.7435 16.6822L10.9052 13.1352L7.92432 15.0647L7 13.4702L10.1658 11.8527L7 10.2351L7.92432 8.61756L10.9052 10.5471L10.7435 7H12.569L12.4073 10.5471L15.3882 8.61756L16.3125 10.2351L13.1467 11.8527L16.3125 13.4702L15.3882 15.0647L12.4073 13.1352L12.569 16.6822H10.7435Z" fill="#0A0F13"/>
+          </svg>
+          input.dzen-form__input(type="text" placeholder="Телефон" name="phone")
+          .dzen-form__input-message(data-input-message)
+        button(type="submit" data-btn-submit).dzen-form__submit 
+          span(data-btn-submit-text)
+          span Надіслати повідомлення

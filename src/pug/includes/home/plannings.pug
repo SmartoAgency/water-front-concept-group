@@ -1,0 +1,70 @@
+-
+  var plans = [
+    {
+      title: 'Будинки',
+      code: 'houses',
+      description: 'Просторі будинки від 120 м²',
+      items: [
+        {title: "",
+        value: "",}
+      ],
+      slider: [
+        './assets/images/home/plannings/house.jpg'
+
+      ]
+    },
+    {
+      title: 'Таунхауси',
+      code: 'townhouses',
+      description: 'Самодостатні  таунхауси від 80 м²',
+      items: [
+        {title: "",
+        value: "",}
+      ],
+      slider: [
+        './assets/images/home/plannings/townhosue.jpg'
+
+      ]
+    },
+    {
+      title: 'Квартири',
+      code: 'apartments',
+      description: 'Комфортні квартири від 45 м²',
+      items: [
+        {title: "",
+        value: "",}
+      ],
+      slider: [
+        './assets/images/home/plannings/apartments.jpg'
+
+      ]
+    }
+  ]
+
+#typical-plans.plannings
+  .bgtitle Layouts
+  .plannings__content
+    .plannings__title
+      .color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1(data-split-lines-new-animation) Жити тут
+      .color-text.text-style-1920-h-2.text-style-768-h-2.text-style-375-h-2 Формати, створені для життя
+    .plannings__list
+      .plannings__list-wrapper
+        each val in plans
+          .card-planning 
+            .card-planning__slider.swiper-container(data-planning-item-slider)
+              .swiper-wrapper
+                each slide in val.slider
+                  .swiper-slide
+                    img(src=slide, alt="", srcset="" loading="lazy")
+            .card-planning__title #{val.title}
+            .card-planning__description #{val.description}
+            .card-planning__list
+              each item in val.items
+                .card-planning__info-item
+                  .card-planning__info-item-title #{item.title}
+                  .card-planning__info-item-value #{item.value}
+            .card-planning__buttons
+              //- button(type="button").card-planning__button.card-planning__button1 
+              //-   span Планування
+              button(type="button" data-planning-popup=val.code).button-primary.button-primary--no-icon
+                span Отримати пропозицію першим

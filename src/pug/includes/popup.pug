@@ -1,0 +1,25 @@
+.callback-popup(data-callback-popup data-lenis-prevent)
+  .callback-popup__bg(data-callback-popup-close)
+  div(data-callback-popup-close class="callback-popup__close")
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M7.83301 9.16699L14.1963 15.5303L7.83301 21.8936L9.10645 23.167L15.4697 16.8037L21.833 23.167L23.1064 21.8936L16.7432 15.5303L23.1064 9.16699L21.833 7.89355L15.4697 14.2568L9.10645 7.89355L7.83301 9.16699Z" fill="#F6F6F6"/>
+    </svg>
+  .callback-popup__content
+    .callback-popup__title.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1.color-white(data-success-title="ДЯКУЄМО ЗА ЗВЕРНЕННЯ") ЗАмовити дзвінок
+    .callback-popup__subtitle.color-black(data-success-title="Ми зв’яжемось з вами найближчим часом для уточнення деталей!") Залишились запитання? Ми готові дати відповідь!
+    form(data-popup-form).dzen-form
+      .dzen-form__input-group(data-field-input data-field-name data-status="field--inactive")
+        <svg class="dzen-form__input-group-required-label" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M10.7435 16.6822L10.9052 13.1352L7.92432 15.0647L7 13.4702L10.1658 11.8527L7 10.2351L7.92432 8.61756L10.9052 10.5471L10.7435 7H12.569L12.4073 10.5471L15.3882 8.61756L16.3125 10.2351L13.1467 11.8527L16.3125 13.4702L15.3882 15.0647L12.4073 13.1352L12.569 16.6822H10.7435Z" fill="#0A0F13"/>
+        </svg>
+        input.dzen-form__input(type="text" placeholder="Ім’я" name="name")
+        .dzen-form__input-message(data-input-message)
+      .dzen-form__input-group(data-field-input data-field-phone data-status="field--inactive")
+        <svg class="dzen-form__input-group-required-label" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M10.7435 16.6822L10.9052 13.1352L7.92432 15.0647L7 13.4702L10.1658 11.8527L7 10.2351L7.92432 8.61756L10.9052 10.5471L10.7435 7H12.569L12.4073 10.5471L15.3882 8.61756L16.3125 10.2351L13.1467 11.8527L16.3125 13.4702L15.3882 15.0647L12.4073 13.1352L12.569 16.6822H10.7435Z" fill="#0A0F13"/>
+        </svg>
+        input.dzen-form__input(type="text" placeholder="Телефон" name="phone")
+        .dzen-form__input-message(data-input-message)
+      button(type="submit" data-btn-submit).dzen-form__submit 
+        span(data-btn-submit-text)
+        span Надіслати повідомлення

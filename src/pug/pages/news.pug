@@ -1,0 +1,95 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Новини'
+    var id_page = 'id-page-plannings'
+    var class_page = 'class-page-plannings'
+    var breadcrumbsSubitem = [
+    ]
+    var cards = [
+      {
+        title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+        digit: "02",
+        month: "Лютий",
+        year: "2026",
+        img: "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+      },
+      {
+        title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+        digit: "02",
+        month: "Лютий",
+        year: "2026",
+        img: "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+      },
+      {
+        title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+        digit: "02",
+        month: "Лютий",
+        year: "2026",
+        img: "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/news.bundle.js')
+block content
+  .news.news--single-page.js-s3d-filter
+    .news__content
+      .news__title
+        .color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1 Апдейти
+      .bgtitle updates
+    .news__list(data-planning-list)
+      each card in cards
+        a(href="/single-news").news__item
+          .news__item-img
+            img(src=card.img alt=card.title  loading="lazy")
+          .news__item-info
+            .news__item-title.text-style-1920-subtitle.text-style-375-subtitle #{card.title}
+            .news__item-date
+              .news__item-date-digit #{card.digit}
+              .news__item-date-month-year #{card.month} #{card.year}
+            .news__item-arrow
+              .news__item-arrow-line
+              .news__item-arrow-icon
+  .project-pagination
+    .pagination
+      button(type="button" data-pagination="prev").pagination__button
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5385 6L6 12M6 12L11.5385 18M6 12L18 12" stroke="#0A0F13"/>
+        </svg>
+
+      .pagination__middle
+        input(type="text", name="pagination-current").pagination__input
+        .pagination__span.text-style-1920-tiny.color-white 
+          | з 
+          span(data-planning-pages-count) 02 
+          | сторінок
+      button(type="button" data-pagination="next").pagination__button
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.4615 18L18 12M18 12L12.4615 6M18 12L6 12" stroke="#0A0F13"/>
+        </svg>
+    button(type="button" data-more).incredible-button
+      .incredible-button__title(data-title="ЗАВАНТАЖИТИ ЩЕ") ЗАВАНТАЖИТИ ЩЕ
+      <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.9483 5.5506C18.0392 6.64154 18.0392 8.4103 16.9483 9.50124C16.4986 9.95099 15.9336 10.2153 15.3485 10.2942C14.0394 10.4707 12.4503 10.3778 11.5163 11.3119C10.5822 12.246 10.675 13.835 10.4985 15.1442C10.4196 15.7293 10.1552 16.2943 9.70546 16.7441C8.61452 17.835 6.84576 17.835 5.75482 16.7441C4.66388 15.6531 4.66388 13.8844 5.75482 12.7934C6.20459 12.3437 6.76956 12.0793 7.35475 12.0004C8.6639 11.8239 10.253 11.9167 11.187 10.9826C12.1211 10.0486 12.0282 8.45955 12.2047 7.1504C12.2836 6.56526 12.5479 6.00034 12.9977 5.5506C14.0886 4.45966 15.8574 4.45966 16.9483 5.5506Z" fill="#0A0F13"/>
+        <path d="M16.9483 16.7441C15.8574 17.835 14.0886 17.835 12.9977 16.7441C12.5479 16.2943 12.2836 15.7294 12.2047 15.1443C12.0282 13.8351 12.1211 12.2461 11.187 11.312C10.253 10.3779 8.6639 10.4708 7.35475 10.2943C6.76956 10.2153 6.20459 9.951 5.75482 9.50124C4.66388 8.4103 4.66388 6.64154 5.75482 5.5506C6.84576 4.45966 8.61452 4.45966 9.70546 5.5506C10.1552 6.00036 10.4196 6.56534 10.4985 7.15053C10.675 8.45967 10.5822 10.0487 11.5163 10.9828C12.4503 11.9169 14.0394 11.824 15.3485 12.0005C15.9336 12.0794 16.4986 12.3437 16.9483 12.7934C18.0392 13.8844 18.0392 15.6531 16.9483 16.7441Z" fill="#0A0F13"/>
+      </svg>
+      .incredible-button__line
+      .incredible-button__line2
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

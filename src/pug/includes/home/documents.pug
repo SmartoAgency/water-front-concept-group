@@ -1,0 +1,36 @@
+-
+  var docs = [
+    {
+      name: "Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт, Витяг iз сайту ДАБI )",
+      img: './assets/images/home/documents/doc1.jpg',
+      link: "../static/OSR2_1.pdf"
+    },
+    {
+      name: "Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт, Витяг iз сайту ДАБI )",
+      img: './assets/images/home/documents/doc1.jpg',
+      link: "../static/OSR2_2.pdf"
+    },
+    {
+      name: "Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт, Витяг iз сайту ДАБI )",
+      img: './assets/images/home/documents/doc1.jpg',
+      link: "../static/OSR2_3.pdf"
+    }
+  ]
+
+.documents#documentation
+  .documents__bg
+    img(src="./assets/images/home/documents/BG.jpg" alt="documents-bg")
+  .documents__content
+    .documents__title.color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1 Документація
+    .bgtitle DOCUMENTS
+    .documents__list
+      each doc in docs
+        a.documents__content-item(href=doc.link target="_blank")
+          .documents__content-item-img
+            .documents__content-item-img-wrapper
+              img(src=doc.img alt=doc.name  loading="lazy")
+          .documents__content-item-name.text-style-1920-subtitle.text-style-375-subtitle.color-white= doc.name
+          .documents__content-item-arrow
+            .documents__content-item-arrow-line
+            .documents__content-item-arrow-icon
+

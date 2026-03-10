@@ -1,0 +1,115 @@
+.panorama-screen {
+    position: relative;
+    &__content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: .3s ease-in-out;
+        cursor: pointer;
+        @media screen and (max-width:600px){
+            width: 78px;
+            height: 78px;
+        }
+        &.active {
+            transform: translate(calc(50vw - 100% - var(--page-side-fields)), calc(50vh - 100% - var(--page-side-fields)));
+            @media screen and (max-width:1025px){
+                
+                transform: translate(calc(50vw - 100% - var(--page-side-fields)), calc(50vh - 150% - var(--page-side-fields)));
+            }
+        }
+        &-text {
+            transform-origin: center;
+            transform-box: fill-box;
+            -webkit-animation: rotate-center 8s linear infinite both;
+            animation: rotate-center 8s linear infinite both;
+        }
+        &-play-icon {
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+        &-stop-icon {
+            opacity: 0;
+            transition: .3s ease-in-out;   
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+        &.active &-play-icon {
+            opacity: 0;
+            transition: .3s ease-in-out;
+        }
+        &.active &-stop-icon {
+            opacity: 1;
+            transition: .3s ease-in-out;
+        }
+        &.active &-text {
+            -webkit-animation: none;
+            animation: none;
+        }
+    }
+    &__title {
+        margin-bottom: 42px;
+        @include to(600px){
+            margin-bottom: 20px;
+        }
+    }
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .Background {
+        width: 100%;
+        height: 100%;
+    }
+    @at-root [lang="en"] .panorama-screen__button-text {
+        display: none;
+    }
+    @at-root [lang="en"] .panorama-screen__button-en {
+        display: initial;
+    }
+    @at-root [lang="ua"] .panorama-screen__button-en {
+        display: none;
+    }
+}
+
+@media screen and (min-width:1025px) and (hover: hover) {
+    .panorama-screen {
+        &__button:hover &__button-text {
+            animation-duration: 4s;
+        } 
+    }
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

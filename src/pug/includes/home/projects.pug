@@ -1,0 +1,54 @@
+-
+  var projects = [
+    {
+      title: 'DZEN КАРПАТИ',
+      description: 'Котеджний комплекс Dzen Residence розташований на мальовничій галявині, в оточенні струмків. На його території є джерело життєдайної корисної води з великим вмістом мінералів.',
+      img: './assets/images/home/projects/dzen-karpaty.jpg',
+      site: 'https://dzen-residence.com'
+    },
+    {
+      title: 'MOON ROCK',
+      description: '18 бутикових вілл в самому сердці тропічного острову, з інфініті басейном, орієнтальним спа простором та healthy рестораном на території комплексу.',
+      img: './assets/images/home/projects/moon-rock.jpg',
+      site: 'https://bigwavesdevelopment.com/moon-rock'
+    },
+    {
+      title: 'AWWA HOTEL',
+      description: 'Апартаменти у популярному туристичному районі Чангу з 25-метровим басейном, кінотеатром на даху та йога-place забезпечують комфортний та елегантний стиль життя.',
+      img: './assets/images/home/projects/awwa-hotel.jpg',
+      site: 'https://bigwavesdevelopment.com/awwam'
+    },
+
+    {
+      title: 'VIRGIN BEACH',
+      description: 'Готель розташований на першій лінії одного з найпопулярніших пляжів Балі. Номери з видом та ваннами на терасах, дайвінг-центр, спа-салони, водні види спорту, руф-топ із кінотеатром, зони для йоги.',
+      img: './assets/images/home/projects/virgin-beach.jpg',
+      site: 'https://bigwavesdevelopment.com/virgin-beach'
+    }
+  ]
+#projects.projects
+  .projects__content
+    .projects__title.text-style-1920-h-2.text-style-768-h-2.text-style-375-h-2(data-split-lines-new-animation) Реалізовані Проєкти
+    .projects__nav
+      button(type="button" data-projects-swiper-prev) 
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.3846 20L4 12M4 12L11.3846 4M4 12L20 12" stroke="#F5F6E6"/>
+        </svg>
+      button(type="button" data-projects-swiper-next) 
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.6154 20L20 12M20 12L12.6154 4M20 12L4 12" stroke="#F5F6E6"/>
+        </svg>
+    .swiper-container(data-projects-swiper)
+      .swiper-wrapper
+        each val in projects
+          .projects__item.swiper-slide
+            .projects__item-img
+              img(src=val.img, alt=val.title  loading="lazy")
+            .projects__item-text
+              .projects__item-title.text-style-1920-h-5= val.title
+              .projects__item-description.text-style-1920-body= val.description
+              a(href=val.site, target='_blank' class="button-small projects__item-button") 
+                span Відвідати сайт
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.522 16L16.5225 7.75734M16.5225 7.75734L8.5 7.75734M16.5225 7.75734L8.03719 16.2426" stroke="#0A0F13"/>
+                </svg>

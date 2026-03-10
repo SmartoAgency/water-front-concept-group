@@ -1,0 +1,51 @@
+- 
+  var infra = [
+    {
+      title: 'Місто на воді',
+      text: 'Власне озеро, канали, причали та приватні пляжі',
+      url: './assets/images/home/location-infrastructure/lucide/kayak.svg',
+    },
+    {
+      title: '40 га приватного парку',
+      text: 'Закрита зелена екосистема для життя без міського шуму.',
+      url: './assets/images/home/location-infrastructure/lucide/shrub.svg',
+    },
+    {
+      title: 'Повна інфраструктура',
+      text: 'Освіта, спорт, ресторани та рекреація — в межах комплексу.',
+      url: './assets/images/home/location-infrastructure/lucide/graduation-cap.svg',
+    },
+    {
+      title: 'Архітектура з характером',
+      text: 'Сучасні форми, великі тераси, інтеграція з природою.',
+      url: './assets/images/home/location-infrastructure/lucide/house-heart.svg',
+    },
+    {
+      title: 'Безпека та приватність',
+      text: 'Закрита територія й продумане зонування.',
+      url: './assets/images/home/location-infrastructure/lucide/shield-check.svg',
+    }
+  ]
+
+.location-infrastructure
+  .location-infrastructure__content
+    #location.location-infrastructure__left
+      .map#map
+      .location-infrastructure__left-title.color-blue.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1(data-split-lines-new-animation) Локація
+      .location-infrastructure__label
+        img(src='./assets/images/home/location-infrastructure/car.svg', alt="", srcset=""  loading="lazy")
+        .location-infrastructure__label-text 
+          .text-style-1920-h-2.text-style-768-h-2.text-style-375-h-2.color-blue 40 ХВ
+          .text-style-1920-small-buttons.color-white-bb до міста Київ
+    #advantages.location-infrastructure__right
+      img.location-infrastructure__right-bg(src="./assets/images/home/location-infrastructure/right-bg.jpg" alt=""  loading="lazy")
+      .location-infrastructure__right-title.color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1(data-split-lines-new-animation) Інфраструктура у комплексі
+      .bgtitle OASIS
+      .location-infrastructure__infrastructure
+        each item in infra
+          .location-infrastructure__item
+            .location-infrastructure__item-img
+              img(src=item.url, alt=item.title  loading="lazy")
+            .location-infrastructure__item-text
+              .location-infrastructure__item-title.text-style-1920-subtitle.text-style-375-subtitle= item.title
+              .location-infrastructure__item-description= item.text

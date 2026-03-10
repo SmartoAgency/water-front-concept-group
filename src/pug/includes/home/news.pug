@@ -1,0 +1,45 @@
+
+-
+  var cards = [
+    {
+      title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      digit: "02",
+      month: "Лютий",
+      year: "2026",
+      img: "./assets/images/home/news/1.jpg"
+    },
+    {
+      title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      digit: "02",
+      month: "Лютий",
+      year: "2026",
+      img: "./assets/images/home/news/1.jpg"
+    },
+    {
+      title: "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      digit: "02",
+      month: "Лютий",
+      year: "2026",
+      img: "./assets/images/home/news/1.jpg"
+    }
+  ]
+.news#updates
+  .news__content
+    .news__title
+      .color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1 Апдейти
+      a(href="/news").button-primary.button-primary--light
+        span Більше апдейтів
+    .bgtitle updates
+  .news__list
+    each card in cards
+      a(href="/single-news").news__item
+        .news__item-img
+          img(src=card.img alt=card.title  loading="lazy")
+        .news__item-info
+          .news__item-title.text-style-1920-subtitle.text-style-375-subtitle #{card.title}
+          .news__item-date
+            .news__item-date-digit #{card.digit}
+            .news__item-date-month-year #{card.month} #{card.year}
+          .news__item-arrow
+            .news__item-arrow-line
+            .news__item-arrow-icon

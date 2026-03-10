@@ -1,0 +1,27 @@
+-
+    var links = [
+        {title: "Головна", url: '#'},
+        {title: "Про комплекс", url: '#about'},
+        {title: "Локація", url: '#location'},
+        {title: "Переваги", url: '#advantages'},
+        {title: "Типові планування", url: '#typical-plans'},
+        {title: "Галерея", url: '#gallery'},
+        {title: "Апдейти", url: '#updates'},
+        {title: "Документація", url: '#documentation'},
+        {title: "Команда проєкту", url: '#team'},
+        {title: "Контакти", url: '#contacts'},
+    ]
+nav.menu(data-lenis-prevent data-menu)
+    button(type="button" data-menu-close).menu__close
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.83301 9.16699L14.1963 15.5303L7.83301 21.8936L9.10645 23.167L15.4697 16.8037L21.833 23.167L23.1064 21.8936L16.7432 15.5303L23.1064 9.16699L21.833 7.89355L15.4697 14.2568L9.10645 7.89355L7.83301 9.16699Z" fill="#F6F6F6"/>
+        </svg>
+    .menu__bg
+    img(src="./assets/images/menu-bg.jpg", alt="", srcset="").menu__decor
+    .menu__content 
+        .menu__title Меню
+        each val, index in links
+            -
+                var isActive = index == 0 ? 'active' : ''
+            a(href=val.url class=isActive+' menu__link' data-title=val.title) #{val.title}
+        .bgtitle MENU

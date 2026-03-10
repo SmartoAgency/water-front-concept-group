@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },
+    {
+        "id": 2,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },
+    {
+        "id": 3,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },{
+        "id": 4,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },
+    {
+        "id": 5,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },{
+        "id": 61,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },
+    {
+        "id": 7,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },{
+        "id": 8,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    },
+    {
+        "id": 9,
+      "title": "Відкриття ресторану Farm Table. Це місце, де їжа стає продовженням природи, а кожна подія  відчувається щиро.",
+      "digit": "02",
+      "month": "Лютий",
+      "year": "2026",
+      "img": "./assets/images/home/news/1.jpg",
+        "link": "/single-news"
+    }
+  ]

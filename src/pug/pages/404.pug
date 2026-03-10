@@ -1,0 +1,29 @@
+extends ../layout/main
+    
+block meta
+  title= '404'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(src='./assets/scripts/vendors.bundle.js')
+  script(src='./assets/scripts/index.bundle.js')
+
+block content
+  .page404
+    .page404__img
+      img(src="./assets/images/404-bg.jpg", alt="", srcset="")
+    .page404__text
+      .page404__title.color-white 404
+      .page404__subtitle.text-style-1920-subtitle.text-style-375-subtitle.color-white Сторінка зникла за горизонтом, але Waterfront залишається поруч.
+      .page404__buttons
+        a(class="button-primary button-primary--light button-primary--no-icon" href="/")
+          span НА ГОЛОВНУ
+        a(class="button-primary button-primary--light button-primary--no-icon" href="/")
+          span Переглянути нерухомість
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+block header
+  include ../includes/header.pug
+

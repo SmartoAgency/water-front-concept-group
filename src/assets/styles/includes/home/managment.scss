@@ -1,0 +1,185 @@
+.managment {
+    background-color: var(--color-ochre);
+    padding-top: var(--section-v-offset);
+    padding-bottom: calc(var(--section-v-offset) * 1.5);
+    @include to(600px){
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+    &__content {
+        padding-left: pxWidthInVw(20);
+        padding-right: pxWidthInVw(20);
+        @include to(1024px){
+            padding-left: var(--page-side-fields);
+            padding-right: var(--page-side-fields);
+        }
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        // column-gap: pxWidthInVw(176);
+        @include to(1024px){
+            gap: 20px;
+        }
+        @include to(600px){
+            gap: 40px;
+        }
+        @include from(1025px){
+            &>:nth-child(3n) {
+                margin-left: pxWidthInVw(316);
+            }
+            &>:nth-child(4),
+            &>:nth-child(2) {
+                margin-left: pxWidthInVw(160);
+            }
+    
+            &>:nth-child(3),
+            &>:nth-child(4) {
+                margin-top: -55px;
+                position: relative;
+                z-index: 2;
+            }
+        }
+    }
+    &__title {
+        width: 100%;
+        margin-bottom: var(--section-v-offset);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: var(--page-side-fields);
+        @include to(1024px){
+            margin-bottom: 56px;
+        }
+        @include to(600px){
+            margin-bottom: 20px;
+        }
+    }
+    &__item {
+        width: pxWidthInVw(694);
+        display: grid; 
+        grid-template-columns: 1fr pxWidthInVw(132) 0.76fr;
+        grid-template-rows: 0.75fr 1fr pxWidthInVw(80);
+        pointer-events: none;
+        @include to(1024px){
+            width: 100%;
+            grid-template-rows: 1fr;
+        }
+        @include to(600px){
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2,auto);
+        }
+        &>* {
+            pointer-events: auto;
+        }
+
+        &-img { 
+            grid-area: 1 / 1 / 3 / 3; 
+        }
+        &-text { 
+            grid-area: 2 / 2 / 4 / 4;
+        }
+
+        &--reverse {
+            grid-template-columns: 0.76fr pxWidthInVw(132) 1fr; 
+            grid-template-rows: 1fr 1fr 80px; 
+            @include to(1024px){
+                grid-template-rows: 1fr;
+            }
+            @include to(600px){
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(2,auto);
+            }
+        }
+
+        &--reverse &-img { 
+            grid-area: 1 / 2 / 3 / 4; 
+        }
+        &--reverse &-text { 
+            grid-area: 2 / 1 / 4 / 3; 
+        }
+
+        @include from-to(601px, 1024px){
+            &.tablet-plain {
+                grid-template-columns: 1fr 40px 0.86fr; 
+            }
+            &.tablet-reverse {
+                grid-template-columns: 0.858fr 77px 1fr; 
+            }
+            &.tablet-plain &-img {
+                grid-area: 1 / 1 / 1 / 3;
+            }
+            &.tablet-plain &-text {
+                grid-area: 1 / 2 / 1 / 4;
+            }
+            &.tablet-reverse &-img{
+                grid-area: 1 / 2 / 1 / 4;
+            }
+            &.tablet-reverse &-text{
+                grid-area: 1 / 1 / 1 / 3;
+            }
+        }
+        @include to(600px){
+            &--reverse &-img,
+            &-img {
+                grid-area: 1 / 1 / 1 / 1;
+                position: relative;
+                z-index: 3;
+            }
+            &--reverse &-text,
+            &-text {
+                grid-area: 2 / 1 / 2 / 1;
+                margin-top: -30px;
+            }
+        }
+
+        
+        &-text {
+            height: max-content;
+            align-self: end;
+            background-color: var(--color-white-bb);
+            padding: pxWidthInVw(40);
+            position: relative;
+            z-index: 2;
+            @include to(1024px){
+                padding: 40px;
+                align-self: center;
+            }
+            @include to(600px){
+                padding: 40px 32px;
+            }
+            &-text {
+                margin-bottom: 20px;
+                @include text-style-1920-body;
+            }
+        }
+        &-title {
+            
+            margin-bottom: 12px;
+        }
+        &-subtitle {
+            margin-bottom: 40px;
+            
+            @include to(600px){
+                margin-bottom: 32px;
+            }
+        }
+
+        &-img {
+            height: max-content;
+            &-wrap {
+                position: relative;
+                padding-bottom: 100%;
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+
+}

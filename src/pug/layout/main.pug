@@ -1,0 +1,110 @@
+include ../includes/mixins.pug
+block variable
+doctype html
+html(lang="ua" data-status="local" data-planning-popup-url="/wp-json/planning-popup/v1/planning/")
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    //- Edge и ряд мобильных браузеров слишком умны. Отключим это.
+    meta(name='format-detection', content='telephone=no')
+    meta(name='format-detection', content='date=no')
+    meta(name='format-detection', content='address=no')
+    meta(name='format-detection', content='email=no')
+    meta(content='notranslate', name='google')
+    <link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="TDV" />
+    <link rel="manifest" href="/static/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#1a1a1d">
+    <meta name="msapplication-config" content="/static/browserconfig.xml">
+    <meta name="theme-color" content="#33414B">
+    block meta
+    block head
+
+  body(class= class_page id= id_page)
+    // START SVG SPRITE
+    include ../../assets/svg-sprite/sprite/symbol_sprite.php
+    // END SVG SPRITE
+    // START LOADER
+    include ../includes/loader.html
+    // END LOADER
+    // START POPUP MODAL
+    include ../includes/popup.pug
+    include ../includes/menu.pug
+    
+      
+    //- include ../includes/form-wrapper.pug
+    // END POPUP MODAL
+    // START MENU
+    include ../includes/menu.pug
+    // END MENU
+    .toast-wrapper(data-toast-wrapper)
+    // START HEADER
+    block header
+    // END HEADER
+    // start plannings popup
+    .popup(data-lenis-prevent data-plannings-popup-wrapper)
+      .popup__overlay
+
+      .popup__window
+        .popup__header
+          h2.popup__title.color-white.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1 ТАУНХАУСИ
+          .popup__controls.plannings__title-o
+            <button type="button" data-plannings-popup-slider-prev>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.3846 20L4 12M4 12L11.3846 4M4 12L20 12" stroke="var(--color-blue)"></path>
+              </svg>
+            </button>
+            <button type="button" data-plannings-popup-slider-next>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.6154 20L20 12M20 12L12.6154 4M20 12L4 12" stroke="var(--color-blue)"></path>
+              </svg>
+            </button>
+
+        button.popup__close(type="button" aria-label="Закрити")
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.83301 9.16699L14.1963 15.5303L7.83301 21.8936L9.10645 23.167L15.4697 16.8037L21.833 23.167L23.1064 21.8936L16.7432 15.5303L23.1064 9.16699L21.833 7.89355L15.4697 14.2568L9.10645 7.89355L7.83301 9.16699Z" fill="#F6F6F6"/>
+          </svg>
+        .popup__body.swiper-container(data-plannings-popup-slider)
+          .swiper-wrapper(data-plannings-popup-body)
+            mixin info-row(label, value)
+              .apartment-plan__info-row
+                span.apartment-plan__info-label= label
+                span.apartment-plan__info-value= value
+            .apartment-plan.swiper-slide
+              .apartment-plan__inner
+                .apartment-plan__floor-plan
+                  .apartment-plan__floor-plan-wrapper
+                    img.apartment-plan__image(src="./assets/images/home/plannings/flat-img.jpg" alt="Планування 1к")
+
+                .apartment-plan__details
+                  h2.text-style-1920-subtitle.apartment-plan__title Планування 1к
+
+                  .apartment-plan__info
+                    +info-row('Будинок:', '5')
+                    +info-row('Поверх:', '5–8')
+                    +info-row('Загальна площа:', '97 м²')
+                    +info-row('Житлова площа:', '78 м²')
+                    +info-row('Кімнат:', '3')
+                    +info-row('Кухня:', '15.88 м²')
+                    +info-row('Санвузол:', '5.78 м²')
+                    +info-row('Пральня:', '5.46 м²')
+                    +info-row('Гардероб:', '5.76 м²')
+                  .apartment-plan__action
+                    button(type="button" data-callback-popup-call).button-primary.button-primary--no-icon 
+                      span ЗВ'ЯЗАТИСЯ З МЕНЕДЖЕРОМ
+    // end plannings popup
+    <template id="empty-planning-list">
+        <div class="empty-planning-list">
+            <div class="empty-planning-list__text text-style-1920-body">Новин не знайдено</div>
+        </div>
+    </template>
+    .page__inner(data-scroll-container)
+      .page__content
+        block content
+        // START FOOTER
+      block footer
+        // END FOOTER
+    block scripts

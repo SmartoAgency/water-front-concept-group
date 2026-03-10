@@ -1,0 +1,339 @@
+import Swiper, { EffectFade, Mousewheel, Navigation, Autoplay } from 'swiper';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from "gsap/SplitText";
+import { pad, useState } from './modules/helpers/helpers';
+import splitToLinesAndFadeUp from './modules/effects/splitLinesAndFadeUp';
+import Accordion from "accordion-js";
+import googleMap from './modules/map/map';
+import './modules/gallery/gallerySlider';
+import { debounce } from 'lodash';
+import { Fancybox } from '@fancyapps/ui';
+import Swal from 'sweetalert2';
+import './inc/plannings-popup.js';
+// const header = document.querySelector('.header');
+
+// const headroom = new Headroom(header, {});
+// headroom.init();
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+gsap.core.globals('ScrollTrigger', ScrollTrigger);
+gsap.core.globals('SplitText', SplitText);
+
+
+document.querySelectorAll('[data-split-lines-new-animation]').forEach((el) => {
+
+    let split = SplitText.create(el, { type: "lines", mask: 'lines', linesClass: "line", });
+    
+    gsap.set(split.lines, {
+        y: 100,
+    });
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: el,
+            once: true,
+            start: '50% bottom',
+        }
+    })
+        .fromTo(split.lines, {
+            y: 100,
+            opacity: 0,
+        }, {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: "power4.out",
+            stagger: {
+                amount: 0.15,
+            }
+        })
+        .add(() => {
+            split.revert();
+        })
+})
+
+
+googleMap();
+
+Swiper.use([Mousewheel, Navigation]);
+
+
+function planningsSliders() {
+    function pad(num) {
+        return (num < 10 ? '0' : '') + num;
+    }
+    
+    document.querySelectorAll('[data-planning-item-slider]').forEach((slider) => {
+        const container = slider.querySelector('.swiper-wrapper');
+        container.addEventListener('click',function(evt){
+            const slides = Array.from(container.querySelectorAll('.swiper-slide img'))
+                .map(el => {
+                    return {
+                        src: el.getAttribute('data-src') || el.src,
+                        thumb: el.getAttribute('data-thumb') || el.src,
+                        type: 'image',
+                        opts: {
+                            caption: el.getAttribute('alt') || '',
+                            thumb: el.getAttribute('data-thumb') || el.src
+                        }
+                    }
+                });
+            Fancybox.show(
+                slides,
+                // clas
+                {
+                    on: {
+                        initLayout: (fancybox) => {
+                            fancybox.getContainer().setAttribute('data-lenis-prevent', '');
+                            
+                        }
+                    },
+                }
+            );
+        });
+    })
+}
+planningsSliders();
+
+
+function planningsBigSlider() {
+    new Swiper('[data-plannings-slider]', {
+        spaceBetween: 20,
+        slidesPerView: 3,
+        navigation: {
+            nextEl: '[data-plannings-slider-next]',
+            prevEl: '[data-plannings-slider-prev]',
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 6,
+            },
+            1025: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            }
+        },
+    })
+}
+planningsBigSlider();
+
+
+function projectsSlider() {
+    new Swiper('[data-projects-swiper]', {
+        slidesPerView: 3.05,
+
+        navigation: {
+            nextEl: '[data-projects-swiper-next]',
+            prevEl: '[data-projects-swiper-prev]',
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1.01,
+                spaceBetween: 7,
+            },
+            1025: {
+                slidesPerView: 3.05,
+                spaceBetween: 1,
+            }
+        },
+    })
+}
+projectsSlider();
+
+
+function locationInfrastructureAnimation() {
+    document.querySelectorAll('.location-infrastructure__item').forEach((el) => {
+        const elHeight = el.offsetHeight;
+        gsap.set(Array.from(el.children), {
+            y: elHeight,
+            autoAlpha: 0,
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                once: true,
+            }
+        })
+        .fromTo(Array.from(el.children), {
+            autoAlpha: 0,
+            y: elHeight,
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.25,
+            stagger: 0.15,
+            ease: "power4.out",
+        })
+    })
+}
+
+locationInfrastructureAnimation();
+
+function managmetnScreenAnimation() {
+    document.querySelectorAll('.managment__item').forEach((el) => {
+        gsap.set(Array.from(el.children), {
+            y: 50,
+            autoAlpha: 0,
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: '20% 100%',
+                once: true,
+            }
+        })
+        .fromTo(Array.from(el.children), {
+            autoAlpha: 0,
+            y: 50,
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            stagger: {
+                amount: 0.15,
+            },
+            ease: "power4.out",
+        })
+    })
+}
+
+managmetnScreenAnimation();
+
+function teamParalax() {
+    const trigger = document.querySelector('.team__bg');
+    const img = document.querySelector('.team__bg img');
+    if (!trigger || !img) return;
+    gsap.set(img, {
+        scale: 1.2,
+    })
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: trigger,
+            scrub: true,
+            invalidateOnRefresh: true,
+        }
+    })
+    tl.fromTo(img, {
+        y: -100,
+    }, {
+        y: 100,
+        ease: 'none',
+    });
+
+
+    document.querySelectorAll('.team__item').forEach((el) => {
+        gsap.set(Array.from(el.children), {
+            y: 30,
+            autoAlpha: 0,
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                once: true,
+            }
+        })
+        .fromTo(Array.from(el.children), {
+            autoAlpha: 0,
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.25,
+            stagger: 0.15,
+            ease: "power4.out",
+        })
+    })
+}
+
+teamParalax();
+
+
+
+
+document.querySelectorAll('.home-front-screen__down').forEach((el) => {
+    el.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        document.querySelector('.screen2').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+    });
+})
+
+
+
+function openFullscreenIframe(url) {
+    Swal.fire({
+        html: `<iframe src="${url}" style="width:100%;height:100%;border:none;"></iframe>`,
+        width: '100vw',
+        padding: 0,
+        background: 'transparent',
+        showConfirmButton: false,
+        showCloseButton: true,
+        animation: false,
+        customClass: {
+            popup: 'fullscreen-swal'
+        }
+});
+}
+
+document.body.addEventListener('click', (evt) => {
+    const target = evt.target.closest('[data-popup-href]');
+    if (target) {
+        evt.preventDefault();
+        const url = target.getAttribute('data-popup-href');
+        openFullscreenIframe(url);
+    }
+});
+
+
+function videoScreenHandler() {
+    let wasCLicked = false;
+    const playVideo = (video, toggle) => {
+        video.play();
+        toggle.classList.add('active');
+    }
+    const pauseVideo = (video, toggle) => {
+        video.pause();
+        toggle.classList.remove('active');
+    }
+    document.body.addEventListener('click', (evt) => {
+        const toggle = evt.target.closest('[data-video-toggle]');
+        if (toggle) {
+            evt.preventDefault();
+            wasCLicked = true;
+            const video = document.querySelector('[data-video-item]');
+            if (video) {
+                if (video.paused) {
+                    playVideo(video, toggle);
+                } else {
+                    pauseVideo(video, toggle);
+                }
+            }
+        }
+    });
+
+    //pause and play on intersection observer
+    const video = document.querySelector('[data-video-item]');
+    const toggle = document.querySelector('[data-video-toggle]');
+    if (video) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!wasCLicked) return;
+                if (entry.isIntersecting) {
+                    playVideo(video, toggle);
+                } else {
+                    pauseVideo(video, toggle);
+                }
+            })
+        }
+        , {
+            threshold: 0.5,
+        });
+        observer.observe(video);
+    }
+
+    
+}
+videoScreenHandler();
