@@ -426,15 +426,20 @@ button {
 	@include text-style-1920-buttons;
 	a {
 		text-decoration: none;
-		color: var(--color-white);
+        color: var(--color-gray);
+        transition: .25s ease-in-out;
+        &:hover {
+            color: var(--color-white);
+        }
 	}
 	&__divider {
-		width: 1px;
+        width: 1px;
 		height: 20px;
 		background-color: var(--color-ochre);
 	}
-	&__active {
-		color: var(--color-gray);
+	a.langs__active {
+        color: var(--color-white);
+        pointer-events: none;
 	}
 }
 

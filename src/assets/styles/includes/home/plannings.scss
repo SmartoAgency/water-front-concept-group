@@ -209,9 +209,9 @@
     &__floor-plan {
         &-wrapper {
             position: relative;
-            padding-bottom: 90%;
+            padding-bottom: Min(90%, 50vh);
             @include from(1720px){
-                padding-bottom: 63%;
+                padding-bottom: 50%;
             }
             @include to(600px){
                 padding-bottom: 63%;
@@ -394,8 +394,16 @@
         padding: 4px;
         line-height: 1;
 
-        &:hover {
-            opacity: 0.7;
+        svg {
+            transform-origin: center;
+            transform-box: fill-box;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        @media (hover: hover) {
+            &:hover svg {
+                transform: rotate(180deg);
+            }
         }
     }
 

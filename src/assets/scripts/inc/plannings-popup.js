@@ -8,15 +8,15 @@ const mock = () => {
             title: 'Townnhouse A2E2345 ' + new Date().getTime(),
             img: './assets/images/home/plannings/townhosue.jpg',
             properties: [
-                { label: 'Будинок:', value: '5' },
-                { label: 'Поверх:', value: '5–8' },
-                { label: 'Загальна площа:', value: '97 м²' },
-                { label: 'Житлова площа:', value: '78 м²' },
-                { label: 'Кімнат:', value: '3' },
-                { label: 'Кухня:', value: '15.88 м²' },
-                { label: 'Санвузол:', value: '5.78 м²' },
-                { label: 'Пральня:', value: '5.46 м²' },
-                { label: 'Гардероб:', value: '5.76 м²' },
+                { key: 'Будинок:', value: '5' },
+                { key: 'Поверх:', value: '5–8' },
+                { key: 'Загальна площа:', value: '97 м²' },
+                { key: 'Житлова площа:', value: '78 м²' },
+                { key: 'Кімнат:', value: '3' },
+                { key: 'Кухня:', value: '15.88 м²' },
+                { key: 'Санвузол:', value: '5.78 м²' },
+                { key: 'Пральня:', value: '5.46 м²' },
+                { key: 'Гардероб:', value: '5.76 м²' },
             ]
         },
     ]
@@ -39,7 +39,7 @@ function planningCard(data = {}) {
                     <div class="apartment-plan__info">
                         ${properties.map(item => `
                             <div class="apartment-plan__info-row">
-                                <span class="apartment-plan__info-label">${item.label}</span>
+                                <span class="apartment-plan__info-label">${item.key}</span>
                                 <span class="apartment-plan__info-value">${item.value}</span>
                             </div>
                         `).join('')}
@@ -58,6 +58,7 @@ function planningsPopupHandler () {
     const popup = document.querySelector('[data-plannings-popup-wrapper]');
     const popupBody = popup.querySelector('[data-plannings-popup-body]');
     const sliderContainer = popup.querySelector('[data-plannings-popup-slider]');
+    const popupTitleContainer = popup.querySelector('[data-plannings-popup-title]');
 
     document.body.addEventListener('click', async (e) => {
         const target = e.target.closest('[data-planning-popup]');
@@ -69,14 +70,28 @@ function planningsPopupHandler () {
         if (document.documentElement.getAttribute('data-status') === 'local') {
     
         }
+        document.body.style.cursor = 'wait';
+        let response = isLocal ? await Promise.resolve([...mock(), ...mock(),...mock()]) : await fetch(url + code);
+
+        if (!isLocal) {
+            response = await response.json();
+            console.log('response', response);
+            response = response.filter(item => item.acf.block.premise_type === code);
+            response = response.map(resItem => {
+                return {
+                    title: resItem.title.rendered,
+                    img: resItem._embedded['wp:featuredmedia'] ? resItem._embedded['wp:featuredmedia'][0].source_url : '',
+                    properties: resItem.acf.block.apps ? resItem.acf.block.apps : []
+                }
+            })
+        }
     
-        const response = isLocal ? await Promise.resolve([...mock(), ...mock(),...mock()]) : await fetch(url + code);
-    
-        console.log('response', response);
 
         const newLayoute = response.map(item => planningCard(item)).join('');
         popupBody.innerHTML = newLayoute;
+        popupTitleContainer.textContent = target.closest('.card-planning').querySelector('.card-planning__title').textContent;
         popup.classList.add('active');
+        document.body.style.cursor = 'default';
         document.body.classList.add('popup-open');
         if (sliderContainer.swiper) {
             sliderContainer.swiper.update();

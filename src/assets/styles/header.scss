@@ -272,6 +272,11 @@
 			}
 		}
 	}
+	.social-icon:hover {
+		svg {
+			animation: wobble 1s ease infinite;
+		}
+	}
 }
 
 @keyframes wobble {

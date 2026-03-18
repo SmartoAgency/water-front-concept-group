@@ -18,7 +18,7 @@ const MAP_PARAMS = {
 }
 
 const CENTER = {
-    "lat": 50.79661050526192, "lng": 30.36764581724879
+    "lat": 50.3309248170899, "lng": 30.635935255767944
 }
 
 const baseFolder = window.location.href.match(/localhost|verstka/)
