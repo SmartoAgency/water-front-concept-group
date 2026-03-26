@@ -24,10 +24,10 @@
     &--light {
         background-color: var(--color-white);
         color: var(--color-blue);
-        [fill] {
+        svg path[fill] {
             fill: var(--color-blue);
         }
-        [stroke] {
+        svg path[stroke] {
             stroke: var(--color-blue);
         }
     }
@@ -35,10 +35,10 @@
         @include to(1024px){
             background-color: var(--color-white);
             color: var(--color-blue);
-            [fill] {
+            svg path[fill] {
                 fill: var(--color-blue);
             }
-            [stroke] {
+            svg path[stroke] {
                 stroke: var(--color-blue);
             }
         }
@@ -86,19 +86,19 @@
         }
         &:hover {
             color: var(--color-blue);
-            [fill] {
+            svg path[fill] {
                 fill: var(--color-blue);
             }
-            [stroke] {
+            svg path[stroke] {
                 stroke: var(--color-blue);
             }
         }
         &--light:hover {
             color: var(--color-white);
-            [fill] {
+            svg path[fill] {
                 fill: var(--color-white);
             }
-            [stroke] {
+            svg path[stroke] {
                 stroke: var(--color-white);
             }
         }

@@ -114,7 +114,7 @@
         }
     }
     &__group2 {
-        @include size(8); 
+        @include size(10); 
         margin-left: auto;
         @include shift-right(0);
         @include size-md(14); 
@@ -336,7 +336,7 @@
 .documents {
     position: relative;
     padding-top: 150px;
-    padding-bottom: 260px;
+    padding-bottom: Min(pxWidthInVw(150), 150px);
     padding-left: var(--page-side-fields);
     padding-right: var(--page-side-fields);
     @include to(1024px){

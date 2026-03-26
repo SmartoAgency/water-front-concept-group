@@ -72,7 +72,7 @@
         }
     }
     &__group {
-        padding: pxWidthInVw(40) 0;
+        padding: pxInVh(30) 0;
         .button-primary {
             width: max-content;
         }
@@ -155,6 +155,12 @@
             padding-left: 0;
             padding-right: 0;
         }
+        @include from(1025px){
+            .dzen-form__input-group {
+                padding-top: pxInVh(24);
+                padding-bottom: pxInVh(24);
+            }
+        }
         &-title {
             @include from-to(601px, 1024px){
                 padding-right: 50%;
@@ -166,7 +172,7 @@
         .dzen-form {
             width: calc(100% - pxWidthInVw(210));
             margin-left: auto;
-            margin-top: var(--section-v-offset);
+            margin-top: pxInVh(110);
             @include to(1024px){
                 width: calc(100% - 240px);
                 margin-top: calc(var(--section-v-offset) * 1.65);
@@ -215,7 +221,7 @@
         justify-content: space-between;
         position: relative;
         height: pxWidthInVw(320);
-        margin-bottom: 370px;
+        margin-bottom: 160px;
         
         margin-top: 268px;
         width: 100%;

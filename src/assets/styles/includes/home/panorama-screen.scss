@@ -19,6 +19,10 @@
         transform: translate(-50%, -50%);
         transition: .3s ease-in-out;
         cursor: pointer;
+        @include from(1025px){
+            width: pxWidthInVw(140);
+            height: pxWidthInVw(140);
+        }
         @media screen and (max-width:600px){
             width: 78px;
             height: 78px;

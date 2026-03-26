@@ -182,6 +182,9 @@ $color-ffffff: rgba(255,255,255,1);
 	letter-spacing: -0.03em;
 	text-decoration: none;
 	text-transform: none;
+	@media screen and (min-width:1025px){
+		font-size: Min(pxWidthInVw(24), 24px);
+	}
 }
 
 .text-style-1920-subtitle {
@@ -211,6 +214,9 @@ $color-ffffff: rgba(255,255,255,1);
 	letter-spacing: -0.03em;
 	text-decoration: none;
 	text-transform: none;
+	@media screen and (min-width:1025px){
+		font-size: Min(pxWidthInVw(16), 16px);
+	}
 }
 @mixin text-style-1920-buttons() {
 	font-size: 16px;
@@ -219,6 +225,10 @@ $color-ffffff: rgba(255,255,255,1);
 	letter-spacing: -0.48px;
 	text-decoration: none;
 	text-transform: uppercase;
+	@media screen and (min-width:1025px){
+		font-size: pxWidthInVw(16);
+		letter-spacing: -0.03em;
+	}
 }
 @mixin text-style-768-huge-manhattan() {
 	@media screen and (max-width:1025px){
@@ -379,12 +389,7 @@ $color-ffffff: rgba(255,255,255,1);
 	text-transform: none;
 }
 .text-style-1920-body {
-	font-family: Gilroy-Regular;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 140%; /* 22.4px */
-	letter-spacing: -0.48px;
+	@include text-style-1920-body();
 }
 .text-style-1920-buttons {
 	font-size: 16px;

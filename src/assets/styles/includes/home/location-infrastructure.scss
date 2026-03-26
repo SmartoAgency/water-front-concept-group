@@ -208,7 +208,8 @@
         width: max-content;
         display: flex;
         align-items: center;
-        background-color: var(--color-white);
+        
+        background: var(--White, #F6F6F6);
         gap: 40px;
         padding: 40px;
         @include to(600px){

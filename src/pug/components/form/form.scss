@@ -135,7 +135,7 @@
   margin-left: auto;
   margin-right: auto;
   @include from(601px){
-    margin-top: 32px;
+    margin-top: pxInVh(32);
   }
 }
 

@@ -235,6 +235,11 @@
 	border-radius: 50%;
 	background-color: var(--color-white);
 	cursor: pointer;
+	@include from(1025px){
+		width: pxWidthInVw(64);
+		height: pxWidthInVw(64);
+		padding: pxWidthInVw(20);
+	}
 	@include to(600px){
 		width: 40px;
 		height: 40px;
@@ -244,6 +249,13 @@
 		path {
 			transform-origin: center;
 			transform-box: fill-box;
+		}
+		transition: .25s ease-in-out;
+		&:hover {
+			background-color: var(--color-blue);
+			path {
+				stroke: var(--color-white);
+			}
 		}
 		&[data-gallery="prev"]:hover path {
 			animation: galleryPrevAnimation 0.75s infinite;

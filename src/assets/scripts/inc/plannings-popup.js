@@ -112,7 +112,7 @@ function planningsPopupHandler () {
                         spaceBetween: 2,
                     },
                     1025: {
-                        slidesPerView: 1,
+                        slidesPerView: 2.01,
                         spaceBetween: 2,
                     }
                 }

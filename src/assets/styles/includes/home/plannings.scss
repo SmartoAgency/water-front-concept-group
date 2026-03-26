@@ -182,7 +182,7 @@
 
 .apartment-plan {
     background-color: var(--color-white);
-    padding: 60px;
+    padding: pxWidthInVw(60);
     color: var(--color-blue);
     @include to(1024px){
         padding: 60px 20px;
@@ -408,7 +408,7 @@
     }
 
     &__body {
-        padding: 40px;
+        padding: 0 pxWidthInVw(40) 0 pxWidthInVw(40);
         @include to(600px){
             padding: 0 20px;
         }

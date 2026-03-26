@@ -1,7 +1,7 @@
 .dzen-form {
     display: flex;
     flex-direction: column;
-    gap: 60px; 
+    gap: pxInVh(60); 
     position: relative;
     @include to(600px){
         gap: 50px;
