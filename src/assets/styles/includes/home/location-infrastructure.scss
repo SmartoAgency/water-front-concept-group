@@ -114,6 +114,10 @@
         }
         @include to(600px){
             padding-top: 80px;
+            min-height: calc(100vh - 60px - var(--header-h));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .bgtitle {
             position: absolute;

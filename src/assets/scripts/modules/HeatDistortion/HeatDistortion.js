@@ -64,17 +64,17 @@
 	
 	var canvas = document.querySelector('.Background-canvas');
 	
-	var textureAlign = { x: 0.5, y: 0.9 };
+	var textureAlign = { x: 0, y: 0 };
 	var textures = [{
-	  file: document.documentElement.dataset.base ? document.documentElement.dataset.base+'/assets/images/water.jpg' : './assets/images/water.jpg',
+	  file: document.documentElement.dataset.base ? document.documentElement.dataset.base+'/assets/images/home/hero-bg.jpg' : './assets/images/home/hero-bg.jpg',
 	  name: 'image',
 	  align: textureAlign,
 	  scale: { x: 1, y: 1 }
 	}, {
-	  file: document.documentElement.dataset.base ? document.documentElement.dataset.base+'/assets/images/water-map.jpg' : './assets/images/water-map.jpg',
+	  file: document.documentElement.dataset.base ? document.documentElement.dataset.base+'/assets/images/home/hero-bg-map.jpg' : './assets/images/home/hero-bg-map.jpg',
 	  name: 'maps',
 	  align: textureAlign,
-	  scale: { x: 0.2, y: 0.2 }
+	  scale: { x: 1, y:1 }
 	}];
 	
 	var haze = new _haze2.default({
@@ -198,15 +198,16 @@
 
 	observeVisibility('.Background', (isVisible, el) => {
 		isInViewport = isVisible;
+		console.log('isInViewport', isInViewport);
 	});
 
 	window.addEventListener('mousemove', function (event) {
 		if (!isInViewport) return;
 	  if (!isTouchDevice) {
-	    _gsap2.default.to(parallaxPos, 1, {
-	      x: event.clientX / window.innerWidth,
-	      y: event.clientY / window.innerHeight
-	    });
+	    // _gsap2.default.to(parallaxPos, 1, {
+	    //   x: event.clientX / window.innerWidth,
+	    //   y: event.clientY / window.innerHeight
+	    // });
 	  }
 	});
 	
@@ -620,7 +621,7 @@
 	    return loadTexture(_this, i, v);
 	  });
 
-	  trackVisibility('#panorama', (eventType, element) => {
+	  trackVisibility('.home-front-screen', (eventType, element) => {
 		if (eventType === 'enter') {
 			window.dontUpdateHeatDistorion1 = false;
 		} else if (eventType === 'exit') {

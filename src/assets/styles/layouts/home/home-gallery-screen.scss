@@ -173,7 +173,10 @@
 		padding-left: 25px;
 		padding-bottom: 25px;
 		@include to(600px){
-			display: none;
+			// display: none;
+			background: radial-gradient(100% 100% at 0% 100%, rgba(16, 24, 32, 0.80) 0%, rgba(16, 24, 32, 0.00) 100%);
+			width: 100vw;
+			height: 100vw;
 		}
 	}
 	&__nav {
@@ -191,6 +194,11 @@
 		@include text-style-1920-body;
 		@include to(600px){
 			bottom: 20px;
+			z-index: 4;
+			left: auto;
+			right: 20px;
+			bottom: 20px;
+			transform: none;
 		}
 		&-digits {
 			display: flex;

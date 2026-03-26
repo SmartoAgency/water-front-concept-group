@@ -50,8 +50,8 @@
     .plannings__list
       .plannings__list-wrapper
         each val in plans
-          .card-planning 
-            .card-planning__slider.swiper-container(data-planning-item-slider)
+          .card-planning(data-planning-popup=val.code)
+            .card-planning__slider.swiper-container
               .swiper-wrapper
                 each slide in val.slider
                   .swiper-slide
@@ -66,5 +66,5 @@
             .card-planning__buttons
               //- button(type="button").card-planning__button.card-planning__button1 
               //-   span Планування
-              button(type="button" data-planning-popup=val.code).button-primary.button-primary--no-icon
+              button(type="button").button-primary.button-primary--no-icon
                 span Отримати пропозицію першим

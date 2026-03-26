@@ -2,8 +2,9 @@
     --inner-vertical-offset: 4px;
     --side-padding: #{pxWidthInVw(60)};
     background: var(--color-white);
+    cursor: pointer;
     &__slider {
-        cursor: zoom-in;
+        // cursor: zoom-in;
         width: 100%;
         .swiper-slide {
             position: relative;
@@ -187,6 +188,14 @@
             &:hover svg [stroke] {
                 stroke: var(--color-black);
             }
+        }
+    }
+    @media screen and (min-width: 1025px) and (hover: hover) {
+        .swiper-slide img {
+            transition: .3s ease-in-out;
+        }
+        &:hover .swiper-slide img {
+            transform: scale(1.05);
         }
     }
 }

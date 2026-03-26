@@ -11,6 +11,7 @@ import { debounce } from 'lodash';
 import { Fancybox } from '@fancyapps/ui';
 import Swal from 'sweetalert2';
 import './inc/plannings-popup.js';
+import './modules/HeatDistortion/HeatDistortion.js';
 // const header = document.querySelector('.header');
 
 // const headroom = new Headroom(header, {});
@@ -142,6 +143,33 @@ function projectsSlider() {
 }
 projectsSlider();
 
+function locationInfrastructureRightAnimation() {
+    document.querySelectorAll('.screen2__right').forEach((el) => {
+        gsap.set(el.querySelector('[data-screen2-form]'), {
+            y: 50,
+            autoAlpha: 0,
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                once: true,
+                start: '50% 50%',
+            }
+        })
+        .fromTo(el.querySelector('[data-screen2-form]'), {
+            autoAlpha: 0,
+            y: 50,
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.25,
+            ease: "power4.out",
+        })
+    })
+}
+
+locationInfrastructureRightAnimation();
+
 
 function locationInfrastructureAnimation() {
     document.querySelectorAll('.location-infrastructure__item').forEach((el) => {
@@ -232,6 +260,7 @@ function teamParalax() {
             scrollTrigger: {
                 trigger: el,
                 once: true,
+                start: '20% 80%',
             }
         })
         .fromTo(Array.from(el.children), {
@@ -241,6 +270,31 @@ function teamParalax() {
             y: 0,
             duration: 1.25,
             stagger: 0.15,
+            ease: "power4.out",
+        })
+    });
+
+
+    document.querySelectorAll('.team__top-block').forEach((el) => {
+        const items = el.querySelectorAll('.team__description p, .team__logo, .team__title');
+        gsap.set(items, {
+            y: 30,
+            autoAlpha: 0,
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                once: true,
+            }
+        })  
+        .fromTo(items, {
+            autoAlpha: 0,
+            y: 30,
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.25,
+            stagger: 0.1,
             ease: "power4.out",
         })
     })
@@ -337,3 +391,163 @@ function videoScreenHandler() {
     
 }
 videoScreenHandler();
+
+function screen2ItemsEffect() {
+    ///screen2__left-list
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: '.screen2__left-list',
+            start: '20% 80%',
+            end: '75% 80%',
+            scrub: true,
+            
+        }
+    })
+    .fromTo('.screen2__left-list .screen2__left-item', {
+        y: 30,
+        autoAlpha: 0,
+    }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 1.25,
+        stagger: 0.15,
+        ease: "power4.out",
+    });
+
+    gsap.set('.screen2__left .screen2__left-bg', {
+        scale: 1.1,
+    })
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: '.screen2',
+            scrub: true,
+        }
+    })
+    .fromTo('.screen2__left .screen2__left-bg', {
+        y: -50,
+    }, {
+        y: 50,
+        ease: 'none',
+    })
+}   
+screen2ItemsEffect();
+
+
+function bigTitlesReveal() {
+  document.querySelectorAll('.bgtitle').forEach((el) => {
+    const parent = el.parentElement;
+
+    // const split = SplitText.create(el, {
+    //   type: "chars",
+    //   charsClass: "char"
+    // });
+
+    // console.log('el', split,el);
+    
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: parent,
+        scrub: true,
+      }
+    }).fromTo(
+      el,
+      {
+        y: 50,
+      },
+      {
+        y: -50,
+      }
+    );
+  });
+}
+
+Promise.all([
+  document.fonts.load('1rem "Manhattan"'),
+  document.fonts.ready
+]).then(() => {
+  bigTitlesReveal();
+});
+
+
+function planningsCardAnimation() {
+    const cardsCont = document.querySelector('.plannings__list-wrapper');
+    gsap.set(cardsCont.querySelectorAll('.card-planning'), {
+        y: 30,
+        autoAlpha: 0,
+    });
+
+    if (window.screen.width > 1025) {
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: cardsCont,
+                start: '20% 80%',
+                end: '75% 80%',
+                once: true,
+            }
+        })
+        .fromTo(cardsCont.querySelectorAll('.card-planning'), {
+            y: 30,
+            autoAlpha: 0,
+        }, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.25,
+            stagger: 0.15,
+            ease: "power4.out",
+        })
+    } else {
+        cardsCont.querySelectorAll('.card-planning').forEach((card) => {
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: '20% 80%',
+                    end: '75% 80%',
+                    once: true,
+                }
+            })
+            .fromTo(card, {
+                y: 30,
+                autoAlpha: 0,
+            }, {
+                y: 0,
+                autoAlpha: 1,
+                duration: 1.25,
+                stagger: 0.15,
+                ease: "power4.out",
+            })
+        });
+    }
+}
+
+planningsCardAnimation();
+
+function docsCardAnimation() {
+    const cardsCont = document.querySelector('.documents__list');
+    gsap.set(cardsCont.querySelectorAll('.documents__content-item'), {
+        y: 30,
+        autoAlpha: 0,
+    })
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: cardsCont,
+            start: '20% 80%',
+            end: '75% 80%',
+            once: true
+        }
+    })
+    .fromTo(cardsCont.querySelectorAll('.documents__content-item'), {
+        y: 30,
+        autoAlpha: 0,
+    }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 1.25,
+        stagger: 0.15,
+        ease: "power4.out",
+    })
+}
+
+docsCardAnimation();
+

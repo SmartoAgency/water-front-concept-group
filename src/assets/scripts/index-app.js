@@ -162,7 +162,7 @@ document.body.addEventListener('click', (evt) => {
 });
 
 
-splitToLinesAndFadeUp('[data-split-lines], .bgtitle', gsap);
+// splitToLinesAndFadeUp('[data-split-lines], .bgtitle', gsap);
 
 
 
@@ -175,3 +175,32 @@ document.body.addEventListener('click', (evt) => {
         behavior: 'smooth'
     });
 });
+
+
+function contactGroupsAnimation() {
+    const cardsCont = document.querySelector('.contact-screen__left-info');
+    gsap.set(cardsCont.querySelectorAll('.contact-screen__group'), {
+        y: 30,
+        autoAlpha: 0,
+    })
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: cardsCont,
+            start: '20% 80%',
+            end: '75% 80%',
+            once: true
+        }
+    })
+    .fromTo(cardsCont.querySelectorAll('.contact-screen__group'), {
+        y: 30,
+        autoAlpha: 0,
+    }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 1.25,
+        stagger: 0.15,
+        ease: "power4.out",
+    })
+}
+
+contactGroupsAnimation();

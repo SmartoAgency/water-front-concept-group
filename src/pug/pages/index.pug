@@ -17,8 +17,10 @@ block scripts
   script(defer src='./assets/scripts/home.bundle.js')
 block content
   .home-front-screen
-    .home-front-screen__bg
-      img(src="./assets/images/home/hero-bg.jpg" type="image/jpeg" loading="lazy" alt="hero-bg")
+    //- .home-front-screen__bg
+    //-   img(src="./assets/images/home/hero-bg.jpg" type="image/jpeg" loading="lazy" alt="hero-bg")
+    .home-front-screen__bg.Background
+      canvas.Background-canvas
     .home-front-screen__content
       .home-front-screen__group1
         .home-front-screen__title.color-blue Water
@@ -65,7 +67,7 @@ block content
         </defs>
       </svg>
 
-    <div class="Background">
+    <div class="Background1">
       <video data-video-item class="Background__video" playsinline muted loop poster="./static/video-poster.jpg">
         <source src="./static/OSR2 (online-video-cutter.com).mp4" type="video/mp4">
       </video>

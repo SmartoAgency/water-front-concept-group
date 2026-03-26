@@ -19,6 +19,7 @@
         row-gap: var(--section-v-offset);
         // color: var(--color-white-light);
         position: relative;
+        overflow: hidden;
         
         @include to(1024px){
             justify-content: space-between;
@@ -106,6 +107,7 @@
             height: 100%;
             z-index: -1;
             object-fit: cover;
+            transform-origin: right bottom;
             @include to(600px){
                 top: auto;
                 bottom: 0;
@@ -148,6 +150,10 @@
         @include to(600px){
             padding-top: var(--section-v-offset);
             padding-bottom: var(--section-v-offset);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: calc(100vh - 60px -  var(--header-h));
         }
         &-title {
             margin-bottom: 12px;
@@ -164,6 +170,7 @@
             }
             @include to(600px){
                 width: 100%;
+                margin-top: auto;
             }
         }
         .bgtitle {
