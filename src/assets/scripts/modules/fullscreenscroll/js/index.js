@@ -46,12 +46,16 @@ document.body.addEventListener('click', async (event) => {
     
 
     // Reinitialize the slides array and events
+    DOM.slides = [...document.querySelectorAll('.slide')];
     slidesArr = [];
     document.querySelectorAll('.slide').forEach(slide => {
+        
         slidesArr.push(new Slide(slide));
     });
     initEvents();
-    setCurrentSlide(0);
+    current = 0;
+    totalSlides = slidesArr.length;
+    setCurrentSlide(current);
     document.querySelectorAll('[data-gallery-category]').forEach(item => {
         item.classList.remove('frame__nav-button--current');
     });
@@ -66,6 +70,7 @@ document.body.addEventListener('click', async (event) => {
         opacity: 1,
         duration: 0.3,
     });
+    console.log('DOM', DOM);
 
 });
 
@@ -109,7 +114,7 @@ const DOM = {
 // document.querySelector('[data-home-gallery-mobile-slide-title]').textContent = DOM.navigationItems[0].textContent;
 
 // total number of slides
-const totalSlides = DOM.slides.length;
+let totalSlides = DOM.slides.length;
 
 let slidesArr = [];
 DOM.slides.forEach(slide => {
@@ -136,7 +141,7 @@ if (DOM.nextArrow) {
 
 const setCurrentSlide = position => {
     if ( current !== -1 ) {
-        // slidesArr[current].DOM.el.classList.remove('slide--current');
+        slidesArr[current].DOM.el.classList.remove('slide--current');
     }
 
     current = position;
