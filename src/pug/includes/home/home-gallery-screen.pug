@@ -12,7 +12,7 @@ div(class="home-gallery-screen "+galleryBlockCustomClass)#gallery
   .home-gallery-screen__title.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1.color-white Галерея
   .frame__nav
     each slide in slides
-      button.frame__nav-button.unbutton.text-style-1920-button #{slide.title}
+      button.frame__nav-button.unbutton.text-style-1920-button(data-gallery-category="123") #{slide.title}
   <div class="slides">
     each slide in slides
       div.slide

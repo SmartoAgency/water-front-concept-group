@@ -8,6 +8,83 @@ import { Slide } from './slide';
 import { Observer } from 'gsap/Observer.js';
 gsap.registerPlugin(Observer);
 
+
+document.body.addEventListener('click', async (event) => {
+    const target = event.target.closest('[data-gallery-category]');
+    console.log('click', target);
+    if (!target) return;
+    
+    const isLocal = document.documentElement.dataset.status === 'local';
+    const container = document.querySelector('.home-gallery-screen .slides');
+    const galleryCode = target.dataset.galleryCategory;
+    const getSingleGalleryUrl = document.documentElement.dataset.getSingleGalleryUrl;
+
+    gsap.to(container, {
+        opacity: 0,
+        duration: 0.3,
+    });
+    let data = isLocal ? await Promise.resolve({
+        acf: {
+            slides: [
+                {img: './assets/images/home/hero-bg.jpg',},
+                {img: './assets/images/home/hero-bg.jpg',},
+                {img: './assets/images/home/hero-bg.jpg',},
+                {img: './assets/images/home/hero-bg.jpg',},
+                {img: './assets/images/home/hero-bg.jpg',},
+            ]
+
+        }
+    }) : await fetch(getSingleGalleryUrl+galleryCode);
+
+    data = isLocal ? data : await data.json();
+    
+
+    container.innerHTML = '';
+    data.acf.slides.forEach(slide => {
+        container.insertAdjacentHTML('beforeend', $slide(slide.img));
+    });
+    
+
+    // Reinitialize the slides array and events
+    slidesArr = [];
+    document.querySelectorAll('.slide').forEach(slide => {
+        slidesArr.push(new Slide(slide));
+    });
+    initEvents();
+    setCurrentSlide(0);
+    document.querySelectorAll('[data-gallery-category]').forEach(item => {
+        item.classList.remove('frame__nav-button--current');
+    });
+    document.querySelectorAll('[data-gallery-all]').forEach(item => {
+        item.textContent = pad(data.acf.slides.length);
+    });
+    document.querySelectorAll('[data-gallery-current]').forEach(item => {
+        item.textContent = pad(1);
+    })
+    target.classList.add('frame__nav-button--current');
+     gsap.to(container, {
+        opacity: 1,
+        duration: 0.3,
+    });
+
+});
+
+if (document.querySelector('.frame__nav-button')) {
+    document.querySelector('.frame__nav-button').click();
+}
+
+function $slide(data) {
+    return `
+        <div class="slide">
+            <div class="slide__inner">
+                <div class="slide__img">
+                    <div class="slide__img-inner" style="background-image:url(${data})"></div>
+                    <div class="slide__img-inner2" style="background-image:url(${data})"></div>
+                </div>
+            </div>
+        </div>
+    `
+}
 // Call the splittingjs to transform the data-splitting texts to spans of chars 
 // Splitting();
 
@@ -59,13 +136,13 @@ if (DOM.nextArrow) {
 
 const setCurrentSlide = position => {
     if ( current !== -1 ) {
-        slidesArr[current].DOM.el.classList.remove('slide--current');
+        // slidesArr[current].DOM.el.classList.remove('slide--current');
     }
 
     current = position;
     slidesArr[current].DOM.el.classList.add('slide--current');
 
-    DOM.navigationItems[current].classList.add('frame__nav-button--current');
+    // DOM.navigationItems[current].classList.add('frame__nav-button--current');
 };
 
 const next = () => {
@@ -82,8 +159,8 @@ const navigate = newPosition => {
     isAnimating = true;
     
     // change navigation current class
-    DOM.navigationItems[current].classList.remove('frame__nav-button--current');
-    DOM.navigationItems[newPosition].classList.add('frame__nav-button--current');
+    // DOM.navigationItems[current].classList.remove('frame__nav-button--current');
+    // DOM.navigationItems[newPosition].classList.add('frame__nav-button--current');
     
     // navigation direction
     const direction = current < newPosition ? current === 0 && newPosition === totalSlides - 1 ? 'prev' : 'next' : current === totalSlides - 1 && newPosition === 0 ? 'next' : 'prev';
@@ -250,10 +327,10 @@ const hideContent = (slide, animate = false) => {
 const initEvents = () => {
     // Links navigation
     [...DOM.navigationItems].forEach((item, position) => {
-        item.addEventListener('click', () => {
-            if ( current === position || isAnimating ) return;
-            navigate(position);
-        });
+        // item.addEventListener('click', () => {
+        //     if ( current === position || isAnimating ) return;
+        //     navigate(position);
+        // });
     });
 
     // Initialize the GSAP Observer plugin
