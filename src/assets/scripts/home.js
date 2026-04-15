@@ -343,52 +343,31 @@ document.body.addEventListener('click', (evt) => {
 
 
 function videoScreenHandler() {
-    let wasCLicked = false;
-    const playVideo = (video, toggle) => {
-        video.play();
-        toggle.classList.add('active');
-    }
-    const pauseVideo = (video, toggle) => {
-        video.pause();
-        toggle.classList.remove('active');
-    }
     document.body.addEventListener('click', (evt) => {
         const toggle = evt.target.closest('[data-video-toggle]');
         if (toggle) {
             evt.preventDefault();
-            wasCLicked = true;
-            const video = document.querySelector('[data-video-item]');
-            if (video) {
-                if (video.paused) {
-                    playVideo(video, toggle);
-                } else {
-                    pauseVideo(video, toggle);
+            const container = document.querySelector('[data-video-src]');
+            const src = container ? container.getAttribute('data-video-src') : '';
+            Swal.fire({
+                html: `<video src="${src}" controls autoplay playsinline></video>`,
+                width: '90vw',
+                padding: 0,
+                background: '#000',
+                showConfirmButton: false,
+                showCloseButton: true,
+                animation: false,
+                customClass: {
+                    popup: 'fullscreen-swal video-swal'
+                },
+                willClose: () => {
+                    if (!Swal.getHtmlContainer()) return;
+                    const video = Swal.getHtmlContainer().querySelector('video');
+                    if (video) video.pause();
                 }
-            }
+            });
         }
     });
-
-    //pause and play on intersection observer
-    const video = document.querySelector('[data-video-item]');
-    const toggle = document.querySelector('[data-video-toggle]');
-    if (video) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!wasCLicked) return;
-                if (entry.isIntersecting) {
-                    playVideo(video, toggle);
-                } else {
-                    pauseVideo(video, toggle);
-                }
-            })
-        }
-        , {
-            threshold: 0.5,
-        });
-        observer.observe(video);
-    }
-
-    
 }
 videoScreenHandler();
 

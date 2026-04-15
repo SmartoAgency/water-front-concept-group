@@ -51,7 +51,7 @@
         align-items: flex-start;
         @include from(1025px){
             background: linear-gradient(0deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 100%);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(2px);
         }
 
         @include to(1024px){

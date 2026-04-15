@@ -114,7 +114,9 @@
 		top: 0;
 		width: 100%;
 		height: 100%;
-		filter: blur(20px);
+		-webkit-filter: blur(3px);
+		filter: blur(3px);
+		will-change: transform;
 		z-index: -1;
 	}
 }

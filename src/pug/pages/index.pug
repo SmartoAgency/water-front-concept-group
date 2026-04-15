@@ -52,7 +52,7 @@ block content
       span Дізнатися більше
   include ../includes/home/screen2.pug
   include ../includes/home/location-infrastructure.pug
-  <div class="panorama-screen" id="panorama">
+  <div class="panorama-screen" id="panorama" data-video-src="./static/OSR2 (online-video-cutter.com).mp4">
     .panorama-screen__content
       <svg data-video-toggle class="panorama-screen__button" width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle data-figma-bg-blur-radius="440" cx="70" cy="70" r="70" fill="#33414B"/>
@@ -68,9 +68,7 @@ block content
       </svg>
 
     <div class="Background1">
-      <video data-video-item class="Background__video" playsinline muted loop poster="./static/video-poster.jpg">
-        <source src="./static/OSR2 (online-video-cutter.com).mp4" type="video/mp4">
-      </video>
+      <img class="Background__video" src="./static/video-poster.jpg" alt="">
     </div>
   </div>
   include ../includes/home/plannings.pug

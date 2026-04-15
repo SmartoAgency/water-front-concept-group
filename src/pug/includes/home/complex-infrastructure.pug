@@ -1,0 +1,54 @@
+-
+  var infraCards = [
+    {
+      title: "Місто на воді",
+      description: "Власне озеро, канали, причали та приватні пляжі.",
+      icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 16H28M28 16L22 10M28 16L22 22M16 4V28M16 28L10 22M16 28L22 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`
+    },
+    {
+      title: "40 га приватного парку",
+      description: "Закрита зелена екосистема для життя без міського шуму.",
+      icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 4C16 4 7 11 7 18C7 22.418 11.134 26 16 26C20.866 26 25 22.418 25 18C25 11 16 4 16 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M16 26V30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>`
+    },
+    {
+      title: "Повна інфраструктура",
+      description: "Освіта, спорт, ресторани та рекреація — в межах комплексу.",
+      icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 28V14L16 4L29 14V28H20V20H12V28H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>`
+    },
+    {
+      title: "Архітектура з характером",
+      description: "Сучасні форми, великі тераси, інтеграція з природою.",
+      icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="12" width="24" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M2 12L16 4L30 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="13" y="20" width="6" height="8" stroke="currentColor" stroke-width="1.5"/>
+      </svg>`
+    },
+    {
+      title: "Безпека та приватність",
+      description: "Закрита територія й продумане зонування.",
+      icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3L5 7.5V16C5 22.075 9.925 27.55 16 29C22.075 27.55 27 22.075 27 16V7.5L16 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M11 16L14.5 19.5L21 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`
+    }
+  ]
+
+section.complex-infrastructure
+  .complex-infrastructure__content
+    h2.complex-infrastructure__title.text-style-1920-h-1.text-style-768-h-1.text-style-375-h-1.color-white Інфраструктура у комплексі
+    .complex-infrastructure__bgtitle.bgtitle oasis
+    .complex-infrastructure__cards
+      each card in infraCards
+        .complex-infrastructure__card
+          .complex-infrastructure__card-icon !{card.icon}
+          .complex-infrastructure__card-body
+            .complex-infrastructure__card-title.text-style-1920-subtitle.color-white #{card.title}
+            p.complex-infrastructure__card-desc.text-style-1920-body.color-text #{card.description}

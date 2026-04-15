@@ -192,15 +192,15 @@ const navigate = newPosition => {
     .addLabel('start', 0)
 
     .set([currentSlide.DOM.imgInner, upcomingSlide.DOM.imgInner], {
-        transformOrigin: direction === 'next' ? '50% 0%' : '50% 100%'
+        transformOrigin: direction === 'next' ? '0% 50%' : '100% 50%'
     }, 'start')
 
-    // Place coming slide either above (translate -100%) or below (translate 100%) and the slide__inner to the opposite translate.
+    // Place coming slide either to the right (translate 100%) or left (translate -100%) and the slide__inner to the opposite translate.
     .set(upcomingSlide.DOM.el, {
-        yPercent: direction === 'next' ? 100 : -100
+        xPercent: direction === 'next' ? 100 : -100
     }, 'start')
     .set(upcomingSlide.DOM.inner, {
-        yPercent: direction === 'next' ? -100 : 100
+        xPercent: direction === 'next' ? -100 : 100
     }, 'start')
     
     // Add current class
@@ -215,21 +215,21 @@ const navigate = newPosition => {
         }
     }, 'start')
     
-    // Current slide moves either up or down (translate 100% or -100%)
+    // Current slide moves either left or right (translate -100% or 100%)
     .to(currentSlide.DOM.el, {
-        yPercent: direction === 'next' ? -100 : 100
+        xPercent: direction === 'next' ? -100 : 100
     }, 'start')
     .to(currentSlide.DOM.imgInner, {
-        scaleY: 2
+        scaleX: 2
     }, 'start')
     // Upcoming slide translates to 0
     .to([upcomingSlide.DOM.el, upcomingSlide.DOM.inner], {
-        yPercent: 0
+        xPercent: 0
     }, 'start')
     .to(upcomingSlide.DOM.imgInner, {
         ease: 'power2.inOut',
-        startAt: {scaleY: 2},
-        scaleY: 1
+        startAt: {scaleX: 2},
+        scaleX: 1
     }, 'start');
 
 
