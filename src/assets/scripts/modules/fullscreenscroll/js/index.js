@@ -176,7 +176,7 @@ const navigate = newPosition => {
 
     gsap.timeline({
         defaults: {
-            duration: 1.6,
+            duration: 2.5,
             ease: 'power3.inOut'
         },
         onComplete: () => {
@@ -227,7 +227,7 @@ const navigate = newPosition => {
         xPercent: 0
     }, 'start')
     .to(upcomingSlide.DOM.imgInner, {
-        ease: 'power2.inOut',
+        ease: 'power1.inOut',
         startAt: {scaleX: 2},
         scaleX: 1
     }, 'start');
@@ -265,7 +265,7 @@ const showContent = position => {
 
     gsap.timeline({
         defaults: {
-            duration: 1.6,
+            duration: 2.5,
             ease: 'power3.inOut'
         },
         onStart: () => {
@@ -303,7 +303,7 @@ const hideContent = (slide, animate = false) => {
     if ( animate ) {
         gsap.timeline({
             defaults: {
-                duration: 1.6,
+                duration: 2.5,
                 ease: 'power3.inOut'
             },
             onComplete: complete
