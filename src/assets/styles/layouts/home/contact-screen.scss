@@ -68,6 +68,7 @@
             }
             @include to(600px){
                 grid-template-columns: 1fr;
+                row-gap: 0px;
             }
         }
     }

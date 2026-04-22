@@ -197,6 +197,7 @@
 	var isInViewport = false;
 
 	observeVisibility('.Background', (isVisible, el) => {
+		if (window.innerWidth < 600) isInViewport = false;
 		isInViewport = isVisible;
 		console.log('isInViewport', isInViewport);
 	});

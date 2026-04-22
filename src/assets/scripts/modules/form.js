@@ -36,10 +36,10 @@ const forms = [
                 el.textContent = el.dataset.defaultTitle;
               }, 10000);
             });
-            // setTimeout(() => {
-            //   $form.classList.remove('success');
-            //   $form.querySelector('[data-success]').remove();
-            // }, 10000);
+            setTimeout(() => {
+              $form.classList.remove('success');
+              $form.querySelector('[data-success]').remove();
+            }, 10000);
           },
           $btnSubmit: $form.querySelector('[data-btn-submit]'),
           fields: {

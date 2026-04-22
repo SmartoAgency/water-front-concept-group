@@ -194,6 +194,9 @@
 		border-radius: 100px;
 		background: rgba(51, 65, 75, 0.80);
 		@include text-style-1920-body;
+		@media screen and (min-width:601px) and (max-width:1024px){
+			z-index: 4;
+		}
 		@include to(600px){
 			bottom: 20px;
 			z-index: 4;

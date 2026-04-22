@@ -17,9 +17,9 @@ block scripts
   script(defer src='./assets/scripts/home.bundle.js')
 block content
   .home-front-screen
-    //- .home-front-screen__bg
-    //-   img(src="./assets/images/home/hero-bg.jpg" type="image/jpeg" loading="lazy" alt="hero-bg")
-    .home-front-screen__bg.Background
+    .home-front-screen__bg.hide-on-desktop.hide-on-tablet
+      img(src="./assets/images/home/hero-bg-mobile.jpg" type="image/jpeg" loading="lazy" alt="hero-bg")
+    .home-front-screen__bg.Background.hide-on-mobile
       canvas.Background-canvas
     .home-front-screen__content
       .home-front-screen__group1

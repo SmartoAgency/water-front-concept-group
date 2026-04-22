@@ -393,6 +393,10 @@ function screen2ItemsEffect() {
         ease: "power4.out",
     });
 
+    if (window.screen.width < 1025) {
+        return;
+    }
+
     gsap.set('.screen2__left .screen2__left-bg', {
         scale: 1.1,
     })

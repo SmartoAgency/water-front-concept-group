@@ -26,6 +26,9 @@
             width: 100%;
             min-height: calc(100vh - var(--header-h));
         }
+        @media screen and (min-width:601px) and (max-width:1024px){
+            justify-content: flex-start;
+        }
         @include to(600px){
             min-height: calc(var(--vh, 1vh) * 100 - var(--header-h));
             row-gap: 0;
@@ -86,7 +89,7 @@
             background: linear-gradient(270deg, rgba(51, 65, 75, 0.00) 0%, #33414B 100%);
             backdrop-filter: blur(1px);
             @include to(1024px){
-                padding-top: 35vh;
+                padding-top: 27vh;
             }
             @include to(600px){
                 width: 100%;

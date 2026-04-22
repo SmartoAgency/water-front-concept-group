@@ -100,7 +100,7 @@
         }
         @include from-to(601px, 1023px){
             &>:last-child {
-                grid-area: 2 / 1 / 2 / 3
+                grid-area: 2 / 1 / 2 / 3;text-align: right;
             }
         }
         @include to(600px){
@@ -111,6 +111,7 @@
             .home-front-screen__slogan {
                 order: 10;
             }
+            
         }
     }
     &__group2 {
@@ -127,6 +128,16 @@
         align-items: flex-start;
         @include to(1024px){
             button {
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:601px) and (max-width:1024px){
+            .button-primary {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:600px){
+            .button-primary {
                 width: 100%;
             }
         }
